@@ -6,9 +6,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.boundary.StructureBoundary;
-import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
 
 @RequestScoped
 public class StructureResource implements StructureResourceDefinition {
@@ -19,25 +19,25 @@ public class StructureResource implements StructureResourceDefinition {
 	@Override
 	public Response getStructures() {
 		System.out.println(bdry);
-		List<Structure> structures = bdry.getStructures();
+		List<StructureDTO> structures = bdry.getStructures();
 		return Response.ok(structures).build();
 	}
 
 	@Override
 	public Response getStructureById(long id) {
-		Structure structure = bdry.getStructureById(id);
+		StructureDTO structure = bdry.getStructureById(id);
 		return Response.ok(structure).build();
 	}
 
 	@Override
 	public Response getStructureByName(String name) {
-		Structure structure = bdry.getStructureByName(name);
+		StructureDTO structure = bdry.getStructureByName(name);
 		return Response.ok(structure).build();
 	}
 
 	@Override
-	public Response createStructure(Structure structure) {
-		Structure created = bdry.createStructure(structure);
+	public Response createStructure(StructureDTO structure) {
+		StructureDTO created = bdry.createStructure(structure);
 		return Response.status(201).entity(created).build();
 	}
 
@@ -55,7 +55,7 @@ public class StructureResource implements StructureResourceDefinition {
 
 	@Override
 	public Response getLinkpointsByStructureId(long id) {
-		List<Linkpoint> linkpoints = bdry.getLinkpointsByStructureId(id);
+		List<LinkpointDTO> linkpoints = bdry.getLinkpointsByStructureId(id);
 		return Response.ok(linkpoints).build();
 	}
 

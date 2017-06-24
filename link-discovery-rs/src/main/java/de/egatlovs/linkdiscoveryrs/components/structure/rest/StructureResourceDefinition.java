@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
 import de.egatlovs.linkdiscoveryrs.rest.CustomMediaType;
 import de.egatlovs.linkdiscoveryrs.rest.VersioningInterceptor;
 
@@ -34,7 +34,7 @@ public interface StructureResourceDefinition {
 
 	@POST
 	@Path("/structure")
-	public Response createStructure(Structure structure);
+	public Response createStructure(StructureDTO structure);
 
 	@DELETE
 	@Path("/{id}")
@@ -47,7 +47,7 @@ public interface StructureResourceDefinition {
 	@GET
 	@Path("/{id}/links")
 	public Response getLinkpointsByStructureId(@PathParam("id") long id);
-	
+
 	@DELETE
 	@Path("/{id}/links")
 	public Response removeLinkpointsByStructureId(@PathParam("id") long id);

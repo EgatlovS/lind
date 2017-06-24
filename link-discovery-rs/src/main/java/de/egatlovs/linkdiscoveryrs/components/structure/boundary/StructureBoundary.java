@@ -1,43 +1,47 @@
 package de.egatlovs.linkdiscoveryrs.components.structure.boundary;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import javax.inject.Inject;
 
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.control.Transformer;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDao;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class StructureBoundary {
 
-	public List<Structure> getStructures() {
-		// TODO get structures from db
-		// TODO map structures to dtos
-		// TODO return structures
-		List<Structure> struc = new ArrayList<>();
-		struc.add(new Structure());
-		return struc;
+	@Inject
+	private StructureDao dao;
+
+	@Inject
+	private Transformer bumblebee;
+
+	public List<StructureDTO> getStructures() {
+		List<Structure> structures = dao.getStructures();
+		List<StructureDTO> dtos = bumblebee.structureDTOs(structures);
+		return dtos;
 	}
 
-	public Structure getStructureById(long id) {
-		// TODO get structure from db
-		// TODO map structure to dto
-		// TODO return dto
-		return null;
+	public StructureDTO getStructureById(long id) {
+		Structure structure = dao.getStructure(id);
+		StructureDTO dto = bumblebee.structureDTO(structure);
+		return dto;
 	}
 
-	public Structure getStructureByName(String name) {
-		// TODO get structure from db
-		// TODO map structure to dto
-		// TODO return dto
-		return null;
+	public StructureDTO getStructureByName(String name) {
+		Structure structure = dao.getStructure(name);
+		StructureDTO dto = bumblebee.structureDTO(structure);
+		return dto;
 	}
 
-	public Structure createStructure(Structure structure) {
+	public StructureDTO createStructure(StructureDTO structure) {
 		// TODO map structure to entity
 		// TODO write structure in db
 		// TODO return created structure
@@ -52,7 +56,7 @@ public class StructureBoundary {
 		// TODO try to remove structure and attached linkpoints from db
 	}
 
-	public List<Linkpoint> getLinkpointsByStructureId(long id) {
+	public List<LinkpointDTO> getLinkpointsByStructureId(long id) {
 		// TODO get linkpoints from db
 		// TODO map linkpoints to dto
 		// TODO return linkpoints

@@ -7,11 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
 
 @Entity
+@NamedQueries(value = {
+		@NamedQuery(name = "Linkpoint.GET_BY_ID", query = "SELECT l FROM Linkpoint l WHERE l.id = :id") })
 public class Linkpoint {
 
 	@Id
