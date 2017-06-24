@@ -1,5 +1,6 @@
 package de.egatlovs.linkdiscoveryrs.components.linkpoint.rest;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
@@ -7,6 +8,7 @@ import de.egatlovs.linkdiscoveryrs.components.linkpoint.boundary.LinkpointBounda
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Field;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
 
+@RequestScoped
 public class LinkpointResource implements LinkpointResourceDefinition {
 
 	@Inject

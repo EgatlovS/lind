@@ -1,5 +1,6 @@
 package de.egatlovs.linkdiscoveryrs.components.structure.boundary;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -17,7 +18,9 @@ public class StructureBoundary {
 		// TODO get structures from db
 		// TODO map structures to dtos
 		// TODO return structures
-		return null;
+		List<Structure> struc = new ArrayList<>();
+		struc.add(new Structure());
+		return struc;
 	}
 
 	public Structure getStructureById(long id) {

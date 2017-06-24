@@ -2,11 +2,21 @@ package de.egatlovs.linkdiscoveryrs.components.structure.entity;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Structure {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
 	private String description;
+	@OneToMany
 	private List<FieldDefinition> fieldDefinitions;
 
 	public long getId() {

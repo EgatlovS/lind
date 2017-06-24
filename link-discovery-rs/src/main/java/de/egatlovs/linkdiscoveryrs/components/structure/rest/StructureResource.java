@@ -2,6 +2,7 @@ package de.egatlovs.linkdiscoveryrs.components.structure.rest;
 
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
@@ -9,6 +10,7 @@ import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.linkdiscoveryrs.components.structure.boundary.StructureBoundary;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
 
+@RequestScoped
 public class StructureResource implements StructureResourceDefinition {
 
 	@Inject
@@ -16,6 +18,7 @@ public class StructureResource implements StructureResourceDefinition {
 
 	@Override
 	public Response getStructures() {
+		System.out.println(bdry);
 		List<Structure> structures = bdry.getStructures();
 		return Response.ok(structures).build();
 	}
