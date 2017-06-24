@@ -1,51 +1,45 @@
 package de.egatlovs.linkdiscoveryrs.components.linkpoint.rest;
 
+import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.boundary.LinkpointBoundary;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Field;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
 
 public class LinkpointResource implements LinkpointResourceDefinition {
 
-	@Override
-	public Response getLinkpoints(long structureId, String structureName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Response removeLinkpointsByStructureId(long structureId, String structureName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	@Inject
+	private LinkpointBoundary bdry;
 
 	@Override
 	public Response getLinkpointById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Linkpoint linkpoint = bdry.getLinkpointById(id);
+		return Response.ok(linkpoint).build();
 	}
 
 	@Override
 	public Response createLinkpoint(Linkpoint linkpoint) {
-		// TODO Auto-generated method stub
-		return null;
+		Linkpoint created = bdry.createLinkpoint(linkpoint);
+		return Response.status(201).entity(created).build();
 	}
 
 	@Override
-	public Response updateLinkpointById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Response updateLinkpointById(long id, Linkpoint linkpoint) {
+		Linkpoint updated = bdry.updateLinkpointById(id, linkpoint);
+		return Response.ok(updated).build();
 	}
 
 	@Override
 	public Response removeLinkpointById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		bdry.removeLinkpointById(id);
+		return Response.ok().build();
 	}
 
 	@Override
 	public Response getLinkpointField(long id, String fieldname) {
-		// TODO Auto-generated method stub
-		return null;
+		Field field = bdry.getLinkpointField(id, fieldname);
+		return Response.ok(field).build();
 	}
 
 }

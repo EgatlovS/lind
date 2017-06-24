@@ -1,7 +1,5 @@
 package de.egatlovs.linkdiscoveryrs.components.structure.rest;
 
-import java.util.List;
-
 import javax.interceptor.Interceptors;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -26,9 +24,6 @@ public interface StructureResourceDefinition {
 	@GET
 	public Response getStructures();
 
-	@POST
-	public Response createStructures(List<Structure> structures);
-
 	@GET
 	@Path("/{id}")
 	public Response getStructureById(@PathParam("id") long id);
@@ -48,5 +43,13 @@ public interface StructureResourceDefinition {
 	@DELETE
 	@Path("/{name}")
 	public Response removeStructureByName(@PathParam("name") String name);
+
+	@GET
+	@Path("/{id}/links")
+	public Response getLinkpointsByStructureId(@PathParam("id") long id);
+	
+	@DELETE
+	@Path("/{id}/links")
+	public Response removeLinkpointsByStructureId(@PathParam("id") long id);
 
 }
