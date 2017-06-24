@@ -1,8 +1,14 @@
 package de.egatlovs.linkdiscoveryrs.components.linkpoint.boundary;
 
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Field;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
 
+@Stateless
+@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class LinkpointBoundary {
 
 	public Linkpoint getLinkpointById(long id) {

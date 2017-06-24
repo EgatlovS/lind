@@ -2,9 +2,15 @@ package de.egatlovs.linkdiscoveryrs.components.structure.boundary;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
 
+@Stateless
+@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class StructureBoundary {
 
 	public List<Structure> getStructures() {

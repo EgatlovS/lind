@@ -18,7 +18,7 @@ import de.egatlovs.linkdiscoveryrs.rest.VersioningInterceptor;
 @Interceptors(VersioningInterceptor.class)
 @Produces(value = MediaType.APPLICATION_JSON)
 @Consumes(value = CustomMediaType.VERSION_1_JSON)
-@Path("/v1/structures")
+@Path("/structures")
 public interface StructureResourceDefinition {
 
 	@GET

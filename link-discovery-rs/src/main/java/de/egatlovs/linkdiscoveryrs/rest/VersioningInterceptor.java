@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 public class VersioningInterceptor {
 
 	@AroundInvoke
-	public Response intercept(InvocationContext ctx) throws Exception {
+	public Object intercept(InvocationContext ctx) throws Exception {
 		try {
 			Object result = ctx.proceed();
 			Response response = (Response) result;
