@@ -10,10 +10,12 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
+
 @Entity
 @NamedQueries(value = { @NamedQuery(name = "Structure.GET_ALL", query = "SELECT s FROM Structure s"),
-		@NamedQuery(name = "Structure.GET_BY_ID", query = "SELECT s FROM Structure s WHERE s.id = :id") ,
-		@NamedQuery(name = "Structure.GET_BY_NAME", query = "SELECT s FROM Structure s WHERE s.name = :name")})
+		@NamedQuery(name = "Structure.GET_BY_ID", query = "SELECT s FROM Structure s WHERE s.id = :id"),
+		@NamedQuery(name = "Structure.GET_BY_NAME", query = "SELECT s FROM Structure s WHERE s.name = :name") })
 public class Structure {
 
 	@Id
@@ -23,15 +25,19 @@ public class Structure {
 	private String description;
 	@OneToMany
 	private List<FieldDefinition> fieldDefinitions;
+	@OneToMany
+	private List<Linkpoint> linkpoints;
 
 	public Structure() {
 	}
 
-	public Structure(long id, String name, String description, List<FieldDefinition> fieldDefinitions) {
+	public Structure(long id, String name, String description, List<FieldDefinition> fieldDefinitions,
+			List<Linkpoint> linkpoints) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.fieldDefinitions = fieldDefinitions;
+		this.linkpoints = linkpoints;
 	}
 
 	public long getId() {
@@ -64,6 +70,14 @@ public class Structure {
 
 	public void setFieldDefinitions(List<FieldDefinition> fieldDefinitions) {
 		this.fieldDefinitions = fieldDefinitions;
+	}
+
+	public List<Linkpoint> getLinkpoints() {
+		return linkpoints;
+	}
+
+	public void setLinkpoints(List<Linkpoint> linkpoints) {
+		this.linkpoints = linkpoints;
 	}
 
 }

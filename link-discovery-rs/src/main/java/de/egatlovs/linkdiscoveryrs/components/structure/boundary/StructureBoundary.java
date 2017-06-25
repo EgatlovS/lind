@@ -7,8 +7,9 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.control.LinkpointTransformer;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
-import de.egatlovs.linkdiscoveryrs.components.structure.control.Transformer;
+import de.egatlovs.linkdiscoveryrs.components.structure.control.StructureTransformer;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDao;
@@ -18,53 +19,52 @@ import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDao;
 public class StructureBoundary {
 
 	@Inject
-	private StructureDao dao;
+	private StructureDao structureManager;
 
 	@Inject
-	private Transformer bumblebee;
+	private StructureTransformer bumblebee;
+
+	@Inject
+	private LinkpointTransformer optimus;
 
 	public List<StructureDTO> getStructures() {
-		List<Structure> structures = dao.getStructures();
-		List<StructureDTO> dtos = bumblebee.structureDTOs(structures);
-		return dtos;
+		List<Structure> structures = structureManager.getStructures();
+		return bumblebee.structureDTOs(structures);
 	}
 
 	public StructureDTO getStructureById(long id) {
-		Structure structure = dao.getStructure(id);
-		StructureDTO dto = bumblebee.structureDTO(structure);
-		return dto;
+		Structure structure = structureManager.getStructure(id);
+		return bumblebee.structureDTO(structure);
 	}
 
 	public StructureDTO getStructureByName(String name) {
-		Structure structure = dao.getStructure(name);
-		StructureDTO dto = bumblebee.structureDTO(structure);
-		return dto;
+		Structure structure = structureManager.getStructure(name);
+		return bumblebee.structureDTO(structure);
 	}
 
-	public StructureDTO createStructure(StructureDTO structure) {
-		// TODO map structure to entity
-		// TODO write structure in db
-		// TODO return created structure
-		return null;
+	public StructureDTO createStructure(StructureDTO structureDTO) {
+		Structure structure = bumblebee.structure(structureDTO);
+		structureManager.persist(structure);
+		return bumblebee.structureDTO(structure);
 	}
 
 	public void removeStructureById(long id) {
-		// TODO try to remove structure and attached linkpoints from db
+		structureManager.removeStructure(id);
 	}
 
 	public void removeStructureByName(String name) {
-		// TODO try to remove structure and attached linkpoints from db
+		structureManager.removeStructure(name);
 	}
 
 	public List<LinkpointDTO> getLinkpointsByStructureId(long id) {
-		// TODO get linkpoints from db
-		// TODO map linkpoints to dto
-		// TODO return linkpoints
-		return null;
+		Structure structure = structureManager.getStructure(id);
+		return optimus.linkpointDTOs(structure.getLinkpoints());
 	}
 
 	public void removeLinkpointsByStructureId(long id) {
-		// TODO try to remove all linkpoints from that sturcture from db
+		Structure structure = structureManager.getStructure(id);
+		structure.setLinkpoints(null);
+		structureManager.merge(structure);
 	}
 
 }

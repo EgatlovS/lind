@@ -1,23 +1,15 @@
 package de.egatlovs.linkdiscoveryrs.components.linkpoint.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+public class FieldDTO {
 
-@Entity
-public class Field {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
 	private String value;
 
-	public Field() {
+	public FieldDTO() {
 	}
 
-	public Field(long id, String name, String value) {
+	public FieldDTO(long id, String name, String value) {
 		this.id = id;
 		this.name = name;
 		this.value = value;

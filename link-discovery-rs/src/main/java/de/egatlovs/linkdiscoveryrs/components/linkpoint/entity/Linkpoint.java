@@ -27,6 +27,16 @@ public class Linkpoint {
 	@OneToMany
 	private List<Field> fields;
 
+	public Linkpoint() {
+	}
+
+	public Linkpoint(long id, String name, Structure parent, List<Field> fields) {
+		this.id = id;
+		this.name = name;
+		this.parent = parent;
+		this.fields = fields;
+	}
+
 	public long getId() {
 		return id;
 	}

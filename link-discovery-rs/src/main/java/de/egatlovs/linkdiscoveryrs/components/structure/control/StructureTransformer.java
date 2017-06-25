@@ -4,23 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.control.LinkpointTransformer;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.FieldDefinition;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.FieldDefinitionDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
 
 @RequestScoped
-public class Transformer {
+public class StructureTransformer {
+
+	@Inject
+	private LinkpointTransformer optimus;
 
 	public StructureDTO structureDTO(Structure structure) {
 		return new StructureDTO(structure.getId(), structure.getName(), structure.getDescription(),
-				fieldDefinitionDTOs(structure.getFieldDefinitions()));
+				fieldDefinitionDTOs(structure.getFieldDefinitions()), optimus.linkpointDTOs(structure.getLinkpoints()));
 	}
 
 	public Structure structure(StructureDTO structureDTO) {
 		return new Structure(structureDTO.getId(), structureDTO.getName(), structureDTO.getDescription(),
-				fieldDefinitions(structureDTO.getFieldDefinitionDTOs()));
+				fieldDefinitions(structureDTO.getFieldDefinitionDTOs()),
+				optimus.linkpoints(structureDTO.getLinkpointDTOs()));
 	}
 
 	public List<StructureDTO> structureDTOs(List<Structure> structures) {

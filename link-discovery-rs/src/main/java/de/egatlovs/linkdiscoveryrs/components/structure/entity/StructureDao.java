@@ -25,9 +25,25 @@ public class StructureDao {
 	}
 
 	public Structure getStructure(String name) {
-		TypedQuery<Structure> q = em.createNamedQuery("Structure.GET_BY_ID", Structure.class) //
+		TypedQuery<Structure> q = em.createNamedQuery("Structure.GET_BY_NAME", Structure.class) //
 				.setParameter("name", name);
 		return q.getSingleResult();
+	}
+
+	public void persist(Structure structure) {
+		em.persist(structure);
+	}
+
+	public void removeStructure(long id) {
+		em.remove(getStructure(id));
+	}
+
+	public void removeStructure(String name) {
+		em.remove(getStructure(name));
+	}
+
+	public void merge(Structure structure) {
+		em.merge(structure);
 	}
 
 }
