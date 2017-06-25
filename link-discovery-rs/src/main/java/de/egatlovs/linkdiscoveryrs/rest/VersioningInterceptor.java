@@ -9,15 +9,17 @@ public class VersioningInterceptor {
 
 	@AroundInvoke
 	public Object intercept(InvocationContext ctx) throws Exception {
-		try {
-			Object result = ctx.proceed();
-			Response response = (Response) result;
-			Object obj = ctx.getTarget();
-			int version = CustomMediaType.getVersion(obj.getClass().getAnnotation(Consumes.class).value());
-			return Response.fromResponse(response).header("x-api-version", version).build();
-		} catch (Exception e) {
-			throw new Exception("Couldnt attach version", e);
+		Object result = ctx.proceed();
+		Response response = (Response) result;
+		Object obj = ctx.getTarget();
+		Class<?>[] clazzes = obj.getClass().getInterfaces();
+		for (Class<?> clazz : clazzes) {
+			if (clazz.isAnnotationPresent(Consumes.class)) {
+				int version = CustomMediaType.getVersion(clazz.getAnnotation(Consumes.class).value());
+				return Response.fromResponse(response).header("x-api-version", version).build();
+			}
 		}
+		throw new Exception("Couldnt attach version");
 	}
 
 }

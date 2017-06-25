@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 import javax.ws.rs.core.Response;
 
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.boundary.StructureBoundary;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
+import de.egatlovs.linkdiscoveryrs.rest.VersioningInterceptor;
 
+@Interceptors(VersioningInterceptor.class)
 @RequestScoped
 public class StructureResource implements StructureResourceDefinition {
 
@@ -18,7 +21,6 @@ public class StructureResource implements StructureResourceDefinition {
 
 	@Override
 	public Response getStructures() {
-		System.out.println(bdry);
 		List<StructureDTO> structures = bdry.getStructures();
 		return Response.ok(structures).build();
 	}

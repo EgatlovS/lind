@@ -2,12 +2,15 @@ package de.egatlovs.linkdiscoveryrs.components.linkpoint.rest;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 import javax.ws.rs.core.Response;
 
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.boundary.LinkpointBoundary;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.FieldDTO;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.rest.VersioningInterceptor;
 
+@Interceptors(VersioningInterceptor.class)
 @RequestScoped
 public class LinkpointResource implements LinkpointResourceDefinition {
 

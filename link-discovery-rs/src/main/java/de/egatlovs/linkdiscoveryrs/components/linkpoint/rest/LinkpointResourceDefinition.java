@@ -1,6 +1,5 @@
 package de.egatlovs.linkdiscoveryrs.components.linkpoint.rest;
 
-import javax.interceptor.Interceptors;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,9 +13,7 @@ import javax.ws.rs.core.Response;
 
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.rest.CustomMediaType;
-import de.egatlovs.linkdiscoveryrs.rest.VersioningInterceptor;
 
-@Interceptors(VersioningInterceptor.class)
 @Produces(value = MediaType.APPLICATION_JSON)
 @Consumes(value = CustomMediaType.VERSION_1_JSON)
 @Path("/links")
