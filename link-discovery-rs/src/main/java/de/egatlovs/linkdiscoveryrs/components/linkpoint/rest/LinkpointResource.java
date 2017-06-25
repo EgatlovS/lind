@@ -5,8 +5,8 @@ import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.boundary.LinkpointBoundary;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Field;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.FieldDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
 
 @RequestScoped
 public class LinkpointResource implements LinkpointResourceDefinition {
@@ -16,19 +16,19 @@ public class LinkpointResource implements LinkpointResourceDefinition {
 
 	@Override
 	public Response getLinkpointById(long id) {
-		Linkpoint linkpoint = bdry.getLinkpointById(id);
+		LinkpointDTO linkpoint = bdry.getLinkpointById(id);
 		return Response.ok(linkpoint).build();
 	}
 
 	@Override
-	public Response createLinkpoint(Linkpoint linkpoint) {
-		Linkpoint created = bdry.createLinkpoint(linkpoint);
+	public Response createLinkpoint(LinkpointDTO linkpointDTO) {
+		LinkpointDTO created = bdry.createLinkpoint(linkpointDTO);
 		return Response.status(201).entity(created).build();
 	}
 
 	@Override
-	public Response updateLinkpointById(long id, Linkpoint linkpoint) {
-		Linkpoint updated = bdry.updateLinkpointById(id, linkpoint);
+	public Response updateLinkpointById(long id, LinkpointDTO linkpointDTO) {
+		LinkpointDTO updated = bdry.updateLinkpointById(id, linkpointDTO);
 		return Response.ok(updated).build();
 	}
 
@@ -40,7 +40,7 @@ public class LinkpointResource implements LinkpointResourceDefinition {
 
 	@Override
 	public Response getLinkpointField(long id, String fieldname) {
-		Field field = bdry.getLinkpointField(id, fieldname);
+		FieldDTO field = bdry.getLinkpointField(id, fieldname);
 		return Response.ok(field).build();
 	}
 

@@ -3,48 +3,74 @@ package de.egatlovs.linkdiscoveryrs.components.linkpoint.boundary;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import javax.inject.Inject;
 
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.control.LinkpointTransformer;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.control.LinkpointValidation;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Field;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.FieldDTO;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDao;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDao;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class LinkpointBoundary {
 
-	public Linkpoint getLinkpointById(long id) {
-		// TODO get endpoint from db
-		// TODO map endpoint to dto
-		// TODO return endpoint
-		return null;
+	@Inject
+	private LinkpointTransformer optimus;
+
+	@Inject
+	private LinkpointDao linkpointManager;
+
+	@Inject
+	private StructureDao structureManager;
+
+	@Inject
+	private LinkpointValidation linkpointValidation;
+
+	public LinkpointDTO getLinkpointById(long id) {
+		Linkpoint linkpoint = linkpointManager.getLinkpoint(id);
+		return optimus.linkpointDTO(linkpoint);
 	}
 
-	public Linkpoint createLinkpoint(Linkpoint linkpoint) {
-		// TODO get structure of endpoint
-		// TODO validate against structure constraints
-		// TODO map linkpoint to entity
-		// TODO write linkpoint in db
-		// TODO return created linkpoint
-		return null;
+	public LinkpointDTO createLinkpoint(LinkpointDTO linkpointDTO) {
+		Structure structure = structureManager.getStructure(linkpointDTO.getParent().getId());
+		if (linkpointValidation.isValid(structure, linkpointDTO)) {
+			Linkpoint linkpoint = optimus.linkpoint(linkpointDTO);
+			linkpointManager.persist(linkpoint);
+			return optimus.linkpointDTO(linkpoint);
+		} else {
+			return null; // TODO throw exception instead!
+		}
 	}
 
-	public Linkpoint updateLinkpointById(long id, Linkpoint linkpoint) {
-		// TODO get linkpoint from db
-		// TODO map updated linkpoint to entity
-		// TODO get structure from db
-		// TODO validate updated linkpoint against structure
-		// TODO write updated linkpoint in db
-		// TODO return updated linkpoint
-		return null;
+	public LinkpointDTO updateLinkpointById(long id, LinkpointDTO linkpointDTO) {
+		Linkpoint linkpoint = linkpointManager.getLinkpoint(id);
+		Structure structure = linkpoint.getParent();
+		if (linkpointValidation.isValid(structure, linkpointDTO)) {
+			linkpoint = optimus.linkpoint(linkpointDTO);
+			linkpoint.setId(id); // Need to set the id otherwise someone could
+									// update a diffrent linkpoint which he did
+									// not describe in the dto (The Validation
+									// of the structure could then be incorrect
+									// and the db would become inconsistent!!!)
+			linkpointManager.merge(linkpoint);
+			return optimus.linkpointDTO(linkpoint);
+		} else {
+			return null; // TODO throw exception instead!
+		}
 	}
 
 	public void removeLinkpointById(long id) {
-		// TODO try to remove linkpoint from db
+		linkpointManager.removeLinkpoint(id);
 	}
 
-	public Field getLinkpointField(long id, String fieldname) {
-		// TODO try to get field of linkpoint from db
-		// TODO return field
-		return null;
+	public FieldDTO getLinkpointField(long id, String fieldname) {
+		Field field = linkpointManager.getField(id, fieldname);
+		return optimus.fieldDTO(field);
 	}
 
 }

@@ -59,10 +59,4 @@ public class StructureResource implements StructureResourceDefinition {
 		return Response.ok(linkpoints).build();
 	}
 
-	@Override
-	public Response removeLinkpointsByStructureId(long id) {
-		bdry.removeLinkpointsByStructureId(id);
-		return Response.ok().build();
-	}
-
 }

@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
+
 @RequestScoped
 public class StructureDao {
 
@@ -42,8 +44,10 @@ public class StructureDao {
 		em.remove(getStructure(name));
 	}
 
-	public void merge(Structure structure) {
-		em.merge(structure);
+	public List<Linkpoint> getMatchingLinkpoints(long id) {
+		TypedQuery<Linkpoint> q = em.createNamedQuery("Structure.GET_MATCHING_LINKPOINTS", Linkpoint.class)//
+				.setParameter("id", id);
+		return q.getResultList();
 	}
 
 }

@@ -48,8 +48,4 @@ public interface StructureResourceDefinition {
 	@Path("/{id}/links")
 	public Response getLinkpointsByStructureId(@PathParam("id") long id);
 
-	@DELETE
-	@Path("/{id}/links")
-	public Response removeLinkpointsByStructureId(@PathParam("id") long id);
-
 }

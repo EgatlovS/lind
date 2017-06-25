@@ -2,26 +2,21 @@ package de.egatlovs.linkdiscoveryrs.components.structure.entity;
 
 import java.util.List;
 
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
-
 public class StructureDTO {
 
 	private long id;
 	private String name;
 	private String description;
 	private List<FieldDefinitionDTO> fieldDefinitionDTOs;
-	private List<LinkpointDTO> linkpointDTOs;
 
 	public StructureDTO() {
 	}
 
-	public StructureDTO(long id, String name, String description, List<FieldDefinitionDTO> fieldDefinitionDTOs,
-			List<LinkpointDTO> linkpointDTOs) {
+	public StructureDTO(long id, String name, String description, List<FieldDefinitionDTO> fieldDefinitionDTOs) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.fieldDefinitionDTOs = fieldDefinitionDTOs;
-		this.setLinkpointDTOs(linkpointDTOs);
 	}
 
 	public long getId() {
@@ -54,14 +49,6 @@ public class StructureDTO {
 
 	public void setFieldDefinitionDTOs(List<FieldDefinitionDTO> fieldDefinitionDTOs) {
 		this.fieldDefinitionDTOs = fieldDefinitionDTOs;
-	}
-
-	public List<LinkpointDTO> getLinkpointDTOs() {
-		return linkpointDTOs;
-	}
-
-	public void setLinkpointDTOs(List<LinkpointDTO> linkpointDTOs) {
-		this.linkpointDTOs = linkpointDTOs;
 	}
 
 }

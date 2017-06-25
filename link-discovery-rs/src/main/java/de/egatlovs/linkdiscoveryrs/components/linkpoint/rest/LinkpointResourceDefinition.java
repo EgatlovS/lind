@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.rest.CustomMediaType;
 import de.egatlovs.linkdiscoveryrs.rest.VersioningInterceptor;
 
@@ -28,11 +28,11 @@ public interface LinkpointResourceDefinition {
 
 	@POST
 	@Path("/link")
-	Response createLinkpoint(Linkpoint linkpoint);
+	Response createLinkpoint(LinkpointDTO linkpointDTO);
 
 	@PUT
 	@Path("/{id}")
-	Response updateLinkpointById(@PathParam("id") long id, Linkpoint linkpoint);
+	Response updateLinkpointById(@PathParam("id") long id, LinkpointDTO linkpointDTO);
 
 	@DELETE
 	@Path("/{id}")

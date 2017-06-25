@@ -14,8 +14,8 @@ import javax.persistence.OneToMany;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
 
 @Entity
-@NamedQueries(value = {
-		@NamedQuery(name = "Linkpoint.GET_BY_ID", query = "SELECT l FROM Linkpoint l WHERE l.id = :id") })
+@NamedQueries(value = { @NamedQuery(name = "Linkpoint.GET_BY_ID", query = "SELECT l FROM Linkpoint l WHERE l.id = :id"),
+		@NamedQuery(name = "Linkpoint.GET_FIELD_OF_LINKPOINT", query = "SELECT f FROM Linkpoint l, Field f WHERE l.id = :id AND f.name = :name") })
 public class Linkpoint {
 
 	@Id

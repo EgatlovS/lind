@@ -8,6 +8,7 @@ import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.control.LinkpointTransformer;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.control.StructureTransformer;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
@@ -57,14 +58,8 @@ public class StructureBoundary {
 	}
 
 	public List<LinkpointDTO> getLinkpointsByStructureId(long id) {
-		Structure structure = structureManager.getStructure(id);
-		return optimus.linkpointDTOs(structure.getLinkpoints());
-	}
-
-	public void removeLinkpointsByStructureId(long id) {
-		Structure structure = structureManager.getStructure(id);
-		structure.setLinkpoints(null);
-		structureManager.merge(structure);
+		List<Linkpoint> linkpoints = structureManager.getMatchingLinkpoints(id);
+		return optimus.linkpointDTOs(linkpoints);
 	}
 
 }
