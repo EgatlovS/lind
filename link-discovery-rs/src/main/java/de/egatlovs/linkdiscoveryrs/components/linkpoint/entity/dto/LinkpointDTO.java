@@ -1,8 +1,8 @@
-package de.egatlovs.linkdiscoveryrs.components.linkpoint.entity;
+package de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto;
 
 import java.util.List;
 
-import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.dto.StructureDTO;
 
 public class LinkpointDTO {
 

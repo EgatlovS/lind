@@ -6,8 +6,8 @@ import javax.interceptor.Interceptors;
 import javax.ws.rs.core.Response;
 
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.boundary.LinkpointBoundary;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.FieldDTO;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.FieldDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.rest.VersioningInterceptor;
 
 @Interceptors(VersioningInterceptor.class)

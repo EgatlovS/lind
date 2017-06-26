@@ -7,9 +7,10 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Field;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.FieldDTO;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.FieldDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.control.StructureTransformer;
 
 @RequestScoped
@@ -66,6 +67,18 @@ public class LinkpointTransformer {
 			fields.add(field(dto));
 		}
 		return fields;
+	}
+
+	public MinimalLinkpointDTO minimalLinkpointDTO(Linkpoint linkpoint) {
+		return new MinimalLinkpointDTO(linkpoint.getId(), linkpoint.getName(), linkpoint.getParent().getId());
+	}
+
+	public List<MinimalLinkpointDTO> minimalLinkpointDTOs(List<Linkpoint> linkpoints) {
+		List<MinimalLinkpointDTO> minimalLinkpointDTOs = new ArrayList<>();
+		for (Linkpoint linkpoint : linkpoints) {
+			minimalLinkpointDTOs.add(minimalLinkpointDTO(linkpoint));
+		}
+		return minimalLinkpointDTOs;
 	}
 
 }

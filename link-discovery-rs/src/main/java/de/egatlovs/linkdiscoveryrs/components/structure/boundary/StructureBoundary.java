@@ -9,11 +9,12 @@ import javax.inject.Inject;
 
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.control.LinkpointTransformer;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.control.StructureTransformer;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
-import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDao;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.dto.MinimalStructureDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.dto.StructureDTO;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -28,9 +29,9 @@ public class StructureBoundary {
 	@Inject
 	private LinkpointTransformer optimus;
 
-	public List<StructureDTO> getStructures() {
+	public List<MinimalStructureDTO> getStructures() {
 		List<Structure> structures = structureManager.getStructures();
-		return bumblebee.structureDTOs(structures);
+		return bumblebee.minimalStructureDTOs(structures);
 	}
 
 	public StructureDTO getStructureById(long id) {
@@ -57,9 +58,9 @@ public class StructureBoundary {
 		structureManager.removeStructure(name);
 	}
 
-	public List<LinkpointDTO> getLinkpointsByStructureId(long id) {
+	public List<MinimalLinkpointDTO> getLinkpointsByStructureId(long id) {
 		List<Linkpoint> linkpoints = structureManager.getMatchingLinkpoints(id);
-		return optimus.linkpointDTOs(linkpoints);
+		return optimus.minimalLinkpointDTOs(linkpoints);
 	}
 
 }

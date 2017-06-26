@@ -1,4 +1,6 @@
-package de.egatlovs.linkdiscoveryrs.components.structure.entity;
+package de.egatlovs.linkdiscoveryrs.components.structure.entity.dto;
+
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.FieldType;
 
 public class FieldDefinitionDTO {
 

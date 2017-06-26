@@ -8,10 +8,10 @@ import javax.inject.Inject;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.control.LinkpointTransformer;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.control.LinkpointValidation;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Field;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.FieldDTO;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.Linkpoint;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDao;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.FieldDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDao;
 

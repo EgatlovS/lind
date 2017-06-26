@@ -1,4 +1,4 @@
-package de.egatlovs.linkdiscoveryrs.components.linkpoint.entity;
+package de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto;
 
 public class FieldDTO {
 

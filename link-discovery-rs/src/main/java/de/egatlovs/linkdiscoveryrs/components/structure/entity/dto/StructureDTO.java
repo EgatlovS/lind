@@ -1,4 +1,4 @@
-package de.egatlovs.linkdiscoveryrs.components.structure.entity;
+package de.egatlovs.linkdiscoveryrs.components.structure.entity.dto;
 
 import java.util.List;
 

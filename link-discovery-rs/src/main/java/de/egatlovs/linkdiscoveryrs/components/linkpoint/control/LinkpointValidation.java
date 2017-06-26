@@ -6,8 +6,8 @@ import java.util.Set;
 
 import javax.enterprise.context.RequestScoped;
 
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.FieldDTO;
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.FieldDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.FieldDefinition;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
 

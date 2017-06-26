@@ -7,9 +7,10 @@ import javax.inject.Inject;
 import javax.interceptor.Interceptors;
 import javax.ws.rs.core.Response;
 
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.boundary.StructureBoundary;
-import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.dto.MinimalStructureDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.dto.StructureDTO;
 import de.egatlovs.linkdiscoveryrs.rest.VersioningInterceptor;
 
 @Interceptors(VersioningInterceptor.class)
@@ -21,7 +22,7 @@ public class StructureResource implements StructureResourceDefinition {
 
 	@Override
 	public Response getStructures() {
-		List<StructureDTO> structures = bdry.getStructures();
+		List<MinimalStructureDTO> structures = bdry.getStructures();
 		return Response.ok(structures).build();
 	}
 
@@ -57,7 +58,7 @@ public class StructureResource implements StructureResourceDefinition {
 
 	@Override
 	public Response getLinkpointsByStructureId(long id) {
-		List<LinkpointDTO> linkpoints = bdry.getLinkpointsByStructureId(id);
+		List<MinimalLinkpointDTO> linkpoints = bdry.getLinkpointsByStructureId(id);
 		return Response.ok(linkpoints).build();
 	}
 

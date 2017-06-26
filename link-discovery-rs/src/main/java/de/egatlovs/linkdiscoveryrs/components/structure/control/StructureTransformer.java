@@ -6,9 +6,10 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.FieldDefinition;
-import de.egatlovs.linkdiscoveryrs.components.structure.entity.FieldDefinitionDTO;
 import de.egatlovs.linkdiscoveryrs.components.structure.entity.Structure;
-import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.dto.FieldDefinitionDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.dto.MinimalStructureDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.dto.StructureDTO;
 
 @RequestScoped
 public class StructureTransformer {
@@ -63,6 +64,18 @@ public class StructureTransformer {
 			fieldDefinitions.add(fieldDefinition(dto));
 		}
 		return fieldDefinitions;
+	}
+
+	public MinimalStructureDTO minimalStructureDTO(Structure structure) {
+		return new MinimalStructureDTO(structure.getId(), structure.getName());
+	}
+
+	public List<MinimalStructureDTO> minimalStructureDTOs(List<Structure> structures) {
+		List<MinimalStructureDTO> minimalStructureDTOs = new ArrayList<>();
+		for (Structure structure : structures) {
+			minimalStructureDTOs.add(minimalStructureDTO(structure));
+		}
+		return minimalStructureDTOs;
 	}
 
 }

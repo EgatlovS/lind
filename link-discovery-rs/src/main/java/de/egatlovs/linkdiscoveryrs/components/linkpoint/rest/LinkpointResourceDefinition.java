@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.LinkpointDTO;
+import de.egatlovs.linkdiscoveryrs.components.linkpoint.entity.dto.LinkpointDTO;
 import de.egatlovs.linkdiscoveryrs.rest.CustomMediaType;
 
 @Produces(value = MediaType.APPLICATION_JSON)

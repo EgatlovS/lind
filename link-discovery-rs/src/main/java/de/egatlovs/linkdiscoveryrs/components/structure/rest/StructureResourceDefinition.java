@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import de.egatlovs.linkdiscoveryrs.components.structure.entity.StructureDTO;
+import de.egatlovs.linkdiscoveryrs.components.structure.entity.dto.StructureDTO;
 import de.egatlovs.linkdiscoveryrs.rest.CustomMediaType;
 
 @Produces(value = MediaType.APPLICATION_JSON)
