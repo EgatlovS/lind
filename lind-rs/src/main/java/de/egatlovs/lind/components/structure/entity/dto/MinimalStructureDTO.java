@@ -1,9 +1,16 @@
 package de.egatlovs.lind.components.structure.entity.dto;
 
+import java.util.List;
+
+import javax.ws.rs.core.Link;
+
 public class MinimalStructureDTO {
 
 	private long id;
 	private String name;
+
+	// self, linkpoints, fielddefinitions
+	private List<Link> _links;
 
 	public MinimalStructureDTO() {
 	}
@@ -27,6 +34,14 @@ public class MinimalStructureDTO {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Link> get_links() {
+		return _links;
+	}
+
+	public void set_links(List<Link> _links) {
+		this._links = _links;
 	}
 
 }

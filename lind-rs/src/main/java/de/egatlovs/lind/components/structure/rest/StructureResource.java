@@ -40,7 +40,7 @@ public class StructureResource implements StructureResourceDefinition {
 
 	@Override
 	public Response createStructure(StructureDTO structure) {
-		StructureDTO created = bdry.createStructure(structure);
+		MinimalStructureDTO created = bdry.createStructure(structure);
 		return Response.status(201).entity(created).build();
 	}
 

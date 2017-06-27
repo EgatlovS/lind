@@ -8,6 +8,7 @@ import javax.ws.rs.core.Response;
 import de.egatlovs.lind.components.linkpoint.boundary.LinkpointBoundary;
 import de.egatlovs.lind.components.linkpoint.entity.dto.FieldDTO;
 import de.egatlovs.lind.components.linkpoint.entity.dto.LinkpointDTO;
+import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.lind.rest.VersioningInterceptor;
 
 @Interceptors(VersioningInterceptor.class)
@@ -25,13 +26,13 @@ public class LinkpointResource implements LinkpointResourceDefinition {
 
 	@Override
 	public Response createLinkpoint(LinkpointDTO linkpointDTO) {
-		LinkpointDTO created = bdry.createLinkpoint(linkpointDTO);
+		MinimalLinkpointDTO created = bdry.createLinkpoint(linkpointDTO);
 		return Response.status(201).entity(created).build();
 	}
 
 	@Override
 	public Response updateLinkpointById(long id, LinkpointDTO linkpointDTO) {
-		LinkpointDTO updated = bdry.updateLinkpointById(id, linkpointDTO);
+		MinimalLinkpointDTO updated = bdry.updateLinkpointById(id, linkpointDTO);
 		return Response.ok(updated).build();
 	}
 

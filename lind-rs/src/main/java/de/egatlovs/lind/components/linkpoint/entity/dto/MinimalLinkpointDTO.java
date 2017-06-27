@@ -1,18 +1,23 @@
 package de.egatlovs.lind.components.linkpoint.entity.dto;
 
+import java.util.List;
+
+import javax.ws.rs.core.Link;
+
 public class MinimalLinkpointDTO {
 
 	private long id;
 	private String name;
-	private long structureId;
+
+	// self, fields, structure
+	private List<Link> _links;
 
 	public MinimalLinkpointDTO() {
 	}
 
-	public MinimalLinkpointDTO(long id, String name, long structureId) {
+	public MinimalLinkpointDTO(long id, String name) {
 		this.id = id;
 		this.name = name;
-		this.structureId = structureId;
 	}
 
 	public long getId() {
@@ -31,12 +36,12 @@ public class MinimalLinkpointDTO {
 		this.name = name;
 	}
 
-	public long getStructureId() {
-		return structureId;
+	public List<Link> get_links() {
+		return _links;
 	}
 
-	public void setStructureId(long structureId) {
-		this.structureId = structureId;
+	public void set_links(List<Link> _links) {
+		this._links = _links;
 	}
 
 }

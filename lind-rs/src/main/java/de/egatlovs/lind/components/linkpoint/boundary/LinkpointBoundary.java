@@ -12,6 +12,7 @@ import de.egatlovs.lind.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.lind.components.linkpoint.entity.LinkpointDao;
 import de.egatlovs.lind.components.linkpoint.entity.dto.FieldDTO;
 import de.egatlovs.lind.components.linkpoint.entity.dto.LinkpointDTO;
+import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.lind.components.structure.entity.Structure;
 import de.egatlovs.lind.components.structure.entity.StructureDao;
 
@@ -36,29 +37,31 @@ public class LinkpointBoundary {
 		return optimus.linkpointDTO(linkpoint);
 	}
 
-	public LinkpointDTO createLinkpoint(LinkpointDTO linkpointDTO) {
-		Structure structure = structureManager.getStructure(linkpointDTO.getParent().getId());
+	public MinimalLinkpointDTO createLinkpoint(LinkpointDTO linkpointDTO) {
+		Structure structure = structureManager.getStructure(linkpointDTO.getStructureId());
 		if (linkpointValidation.isValid(structure, linkpointDTO)) {
 			Linkpoint linkpoint = optimus.linkpoint(linkpointDTO);
+			linkpoint.setParent(structure);
 			linkpointManager.persist(linkpoint);
-			return optimus.linkpointDTO(linkpoint);
+			return optimus.minimalLinkpointDTO(linkpoint);
 		} else {
 			return null; // TODO throw exception instead!
 		}
 	}
 
-	public LinkpointDTO updateLinkpointById(long id, LinkpointDTO linkpointDTO) {
+	public MinimalLinkpointDTO updateLinkpointById(long id, LinkpointDTO linkpointDTO) {
 		Linkpoint linkpoint = linkpointManager.getLinkpoint(id);
 		Structure structure = linkpoint.getParent();
 		if (linkpointValidation.isValid(structure, linkpointDTO)) {
 			linkpoint = optimus.linkpoint(linkpointDTO);
+			linkpoint.setParent(structure);
 			linkpoint.setId(id); // Need to set the id otherwise someone could
 									// update a diffrent linkpoint which he did
 									// not describe in the dto (The Validation
 									// of the structure could then be incorrect
 									// and the db would become inconsistent!!!)
 			linkpointManager.merge(linkpoint);
-			return optimus.linkpointDTO(linkpoint);
+			return optimus.minimalLinkpointDTO(linkpoint);
 		} else {
 			return null; // TODO throw exception instead!
 		}

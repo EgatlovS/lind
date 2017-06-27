@@ -2,12 +2,17 @@ package de.egatlovs.lind.components.structure.entity.dto;
 
 import java.util.List;
 
+import javax.ws.rs.core.Link;
+
 public class StructureDTO {
 
 	private long id;
 	private String name;
 	private String description;
 	private List<FieldDefinitionDTO> fieldDefinitionDTOs;
+
+	// self, linkpoints
+	private List<Link> _links;
 
 	public StructureDTO() {
 	}
@@ -49,6 +54,14 @@ public class StructureDTO {
 
 	public void setFieldDefinitionDTOs(List<FieldDefinitionDTO> fieldDefinitionDTOs) {
 		this.fieldDefinitionDTOs = fieldDefinitionDTOs;
+	}
+
+	public List<Link> get_links() {
+		return _links;
+	}
+
+	public void set_links(List<Link> _links) {
+		this._links = _links;
 	}
 
 }

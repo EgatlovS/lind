@@ -44,10 +44,10 @@ public class StructureBoundary {
 		return bumblebee.structureDTO(structure);
 	}
 
-	public StructureDTO createStructure(StructureDTO structureDTO) {
+	public MinimalStructureDTO createStructure(StructureDTO structureDTO) {
 		Structure structure = bumblebee.structure(structureDTO);
 		structureManager.persist(structure);
-		return bumblebee.structureDTO(structure);
+		return bumblebee.minimalStructureDTO(structure);
 	}
 
 	public void removeStructureById(long id) {

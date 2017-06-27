@@ -1,10 +1,17 @@
 package de.egatlovs.lind.components.linkpoint.entity.dto;
 
+import java.util.List;
+
+import javax.ws.rs.core.Link;
+
 public class FieldDTO {
 
 	private long id;
 	private String name;
 	private String value;
+
+	// self, link, structure
+	private List<Link> _links;
 
 	public FieldDTO() {
 	}
@@ -37,6 +44,14 @@ public class FieldDTO {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public List<Link> get_links() {
+		return _links;
+	}
+
+	public void set_links(List<Link> _links) {
+		this._links = _links;
 	}
 
 }

@@ -2,22 +2,25 @@ package de.egatlovs.lind.components.linkpoint.entity.dto;
 
 import java.util.List;
 
-import de.egatlovs.lind.components.structure.entity.dto.StructureDTO;
+import javax.ws.rs.core.Link;
 
 public class LinkpointDTO {
 
 	private long id;
 	private String name;
-	private StructureDTO parent;
+	private long structureId;
 	private List<FieldDTO> fieldDTOs;
+
+	// self, structure
+	private List<Link> _links;
 
 	public LinkpointDTO() {
 	}
 
-	public LinkpointDTO(long id, String name, StructureDTO parent, List<FieldDTO> fieldDTOs) {
+	public LinkpointDTO(long id, String name, long structureId, List<FieldDTO> fieldDTOs) {
 		this.id = id;
 		this.name = name;
-		this.parent = parent;
+		this.structureId = structureId;
 		this.fieldDTOs = fieldDTOs;
 	}
 
@@ -37,20 +40,28 @@ public class LinkpointDTO {
 		this.name = name;
 	}
 
-	public StructureDTO getParent() {
-		return parent;
-	}
-
-	public void setParent(StructureDTO parent) {
-		this.parent = parent;
-	}
-
 	public List<FieldDTO> getFieldDTOs() {
 		return fieldDTOs;
 	}
 
 	public void setFieldDTOs(List<FieldDTO> fieldDTOs) {
 		this.fieldDTOs = fieldDTOs;
+	}
+
+	public List<Link> get_links() {
+		return _links;
+	}
+
+	public void set_links(List<Link> _links) {
+		this._links = _links;
+	}
+
+	public long getStructureId() {
+		return structureId;
+	}
+
+	public void setStructureId(long structureId) {
+		this.structureId = structureId;
 	}
 
 }

@@ -4,29 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 
 import de.egatlovs.lind.components.linkpoint.entity.Field;
 import de.egatlovs.lind.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.lind.components.linkpoint.entity.dto.FieldDTO;
 import de.egatlovs.lind.components.linkpoint.entity.dto.LinkpointDTO;
 import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
-import de.egatlovs.lind.components.structure.control.StructureTransformer;
+import de.egatlovs.lind.components.structure.entity.Structure;
 
 @RequestScoped
 public class LinkpointTransformer {
 
-	@Inject
-	private StructureTransformer bumblebee;
-
 	public LinkpointDTO linkpointDTO(Linkpoint linkpoint) {
-		return new LinkpointDTO(linkpoint.getId(), linkpoint.getName(), bumblebee.structureDTO(linkpoint.getParent()),
+		return new LinkpointDTO(linkpoint.getId(), linkpoint.getName(), linkpoint.getParent().getId(),
 				fieldDTOs(linkpoint.getFields()));
 	}
 
 	public Linkpoint linkpoint(LinkpointDTO linkpointDTO) {
-		return new Linkpoint(linkpointDTO.getId(), linkpointDTO.getName(),
-				bumblebee.structure(linkpointDTO.getParent()), fields(linkpointDTO.getFieldDTOs()));
+		Structure structure = new Structure();
+		structure.setId(linkpointDTO.getStructureId());
+		return new Linkpoint(linkpointDTO.getId(), linkpointDTO.getName(), structure,
+				fields(linkpointDTO.getFieldDTOs()));
 	}
 
 	public List<LinkpointDTO> linkpointDTOs(List<Linkpoint> linkpoints) {
@@ -35,14 +33,6 @@ public class LinkpointTransformer {
 			linkpointDTOs.add(linkpointDTO(linkpoint));
 		}
 		return linkpointDTOs;
-	}
-
-	public List<Linkpoint> linkpoints(List<LinkpointDTO> linkpointDTOs) {
-		List<Linkpoint> linkpoints = new ArrayList<>();
-		for (LinkpointDTO dto : linkpointDTOs) {
-			linkpoints.add(linkpoint(dto));
-		}
-		return linkpoints;
 	}
 
 	public FieldDTO fieldDTO(Field field) {
@@ -70,7 +60,7 @@ public class LinkpointTransformer {
 	}
 
 	public MinimalLinkpointDTO minimalLinkpointDTO(Linkpoint linkpoint) {
-		return new MinimalLinkpointDTO(linkpoint.getId(), linkpoint.getName(), linkpoint.getParent().getId());
+		return new MinimalLinkpointDTO(linkpoint.getId(), linkpoint.getName());
 	}
 
 	public List<MinimalLinkpointDTO> minimalLinkpointDTOs(List<Linkpoint> linkpoints) {

@@ -1,5 +1,9 @@
 package de.egatlovs.lind.components.structure.entity.dto;
 
+import java.util.List;
+
+import javax.ws.rs.core.Link;
+
 import de.egatlovs.lind.components.structure.entity.FieldType;
 
 public class FieldDefinitionDTO {
@@ -8,6 +12,9 @@ public class FieldDefinitionDTO {
 	private String name;
 	private FieldType type;
 	private String validationConstraint;
+
+	// self, structure
+	private List<Link> _links;
 
 	public FieldDefinitionDTO() {
 	}
@@ -49,6 +56,14 @@ public class FieldDefinitionDTO {
 
 	public void setValidationConstraint(String validationConstraint) {
 		this.validationConstraint = validationConstraint;
+	}
+
+	public List<Link> get_links() {
+		return _links;
+	}
+
+	public void set_links(List<Link> _links) {
+		this._links = _links;
 	}
 
 }
