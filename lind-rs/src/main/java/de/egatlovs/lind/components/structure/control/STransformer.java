@@ -12,7 +12,7 @@ import de.egatlovs.lind.components.structure.entity.dto.MinimalStructureDTO;
 import de.egatlovs.lind.components.structure.entity.dto.StructureDTO;
 
 @RequestScoped
-public class StructureTransformer {
+public class STransformer {
 
 	public StructureDTO structureDTO(Structure structure) {
 		return new StructureDTO(structure.getId(), structure.getName(), structure.getDescription(),

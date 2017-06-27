@@ -7,10 +7,10 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import de.egatlovs.lind.components.linkpoint.control.LinkpointTransformer;
+import de.egatlovs.lind.components.linkpoint.control.LTransformer;
 import de.egatlovs.lind.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
-import de.egatlovs.lind.components.structure.control.StructureTransformer;
+import de.egatlovs.lind.components.structure.control.STransformer;
 import de.egatlovs.lind.components.structure.entity.Structure;
 import de.egatlovs.lind.components.structure.entity.StructureDao;
 import de.egatlovs.lind.components.structure.entity.dto.MinimalStructureDTO;
@@ -24,10 +24,10 @@ public class StructureBoundary {
 	private StructureDao structureManager;
 
 	@Inject
-	private StructureTransformer bumblebee;
+	private STransformer bumblebee;
 
 	@Inject
-	private LinkpointTransformer optimus;
+	private LTransformer optimus;
 
 	public List<MinimalStructureDTO> getStructures() {
 		List<Structure> structures = structureManager.getStructures();
@@ -44,10 +44,9 @@ public class StructureBoundary {
 		return bumblebee.structureDTO(structure);
 	}
 
-	public MinimalStructureDTO createStructure(StructureDTO structureDTO) {
+	public void createStructure(StructureDTO structureDTO) {
 		Structure structure = bumblebee.structure(structureDTO);
 		structureManager.persist(structure);
-		return bumblebee.minimalStructureDTO(structure);
 	}
 
 	public void removeStructureById(long id) {

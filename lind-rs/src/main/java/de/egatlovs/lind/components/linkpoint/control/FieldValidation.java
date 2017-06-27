@@ -12,7 +12,7 @@ import de.egatlovs.lind.components.structure.entity.FieldDefinition;
 import de.egatlovs.lind.components.structure.entity.Structure;
 
 @RequestScoped
-public class LinkpointValidation {
+public class FieldValidation {
 
 	public boolean isValid(Structure structure, LinkpointDTO linkpointDTO) {
 		List<FieldDefinition> definitions = structure.getFieldDefinitions();

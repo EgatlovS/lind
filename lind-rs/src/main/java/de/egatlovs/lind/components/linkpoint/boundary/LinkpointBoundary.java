@@ -5,14 +5,13 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import de.egatlovs.lind.components.linkpoint.control.LinkpointTransformer;
-import de.egatlovs.lind.components.linkpoint.control.LinkpointValidation;
+import de.egatlovs.lind.components.linkpoint.control.LTransformer;
+import de.egatlovs.lind.components.linkpoint.control.FieldValidation;
 import de.egatlovs.lind.components.linkpoint.entity.Field;
 import de.egatlovs.lind.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.lind.components.linkpoint.entity.LinkpointDao;
 import de.egatlovs.lind.components.linkpoint.entity.dto.FieldDTO;
 import de.egatlovs.lind.components.linkpoint.entity.dto.LinkpointDTO;
-import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.lind.components.structure.entity.Structure;
 import de.egatlovs.lind.components.structure.entity.StructureDao;
 
@@ -21,7 +20,7 @@ import de.egatlovs.lind.components.structure.entity.StructureDao;
 public class LinkpointBoundary {
 
 	@Inject
-	private LinkpointTransformer optimus;
+	private LTransformer optimus;
 
 	@Inject
 	private LinkpointDao linkpointManager;
@@ -30,26 +29,25 @@ public class LinkpointBoundary {
 	private StructureDao structureManager;
 
 	@Inject
-	private LinkpointValidation linkpointValidation;
+	private FieldValidation linkpointValidation;
 
 	public LinkpointDTO getLinkpointById(long id) {
 		Linkpoint linkpoint = linkpointManager.getLinkpoint(id);
 		return optimus.linkpointDTO(linkpoint);
 	}
 
-	public MinimalLinkpointDTO createLinkpoint(LinkpointDTO linkpointDTO) {
+	public void createLinkpoint(LinkpointDTO linkpointDTO) {
 		Structure structure = structureManager.getStructure(linkpointDTO.getStructureId());
 		if (linkpointValidation.isValid(structure, linkpointDTO)) {
 			Linkpoint linkpoint = optimus.linkpoint(linkpointDTO);
 			linkpoint.setParent(structure);
 			linkpointManager.persist(linkpoint);
-			return optimus.minimalLinkpointDTO(linkpoint);
 		} else {
-			return null; // TODO throw exception instead!
+			// TODO throw exception instead!
 		}
 	}
 
-	public MinimalLinkpointDTO updateLinkpointById(long id, LinkpointDTO linkpointDTO) {
+	public void updateLinkpointById(long id, LinkpointDTO linkpointDTO) {
 		Linkpoint linkpoint = linkpointManager.getLinkpoint(id);
 		Structure structure = linkpoint.getParent();
 		if (linkpointValidation.isValid(structure, linkpointDTO)) {
@@ -61,9 +59,8 @@ public class LinkpointBoundary {
 									// of the structure could then be incorrect
 									// and the db would become inconsistent!!!)
 			linkpointManager.merge(linkpoint);
-			return optimus.minimalLinkpointDTO(linkpoint);
 		} else {
-			return null; // TODO throw exception instead!
+			// TODO throw exception instead!
 		}
 	}
 

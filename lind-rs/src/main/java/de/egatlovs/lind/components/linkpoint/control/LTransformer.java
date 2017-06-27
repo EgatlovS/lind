@@ -13,7 +13,7 @@ import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.lind.components.structure.entity.Structure;
 
 @RequestScoped
-public class LinkpointTransformer {
+public class LTransformer {
 
 	public LinkpointDTO linkpointDTO(Linkpoint linkpoint) {
 		return new LinkpointDTO(linkpoint.getId(), linkpoint.getName(), linkpoint.getParent().getId(),
