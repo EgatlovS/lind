@@ -10,7 +10,6 @@ public class CheckValidRegex implements ConstraintValidator<ValidRegex, String> 
 
 	@Override
 	public void initialize(ValidRegex constraintAnnotation) {
-
 	}
 
 	@Override

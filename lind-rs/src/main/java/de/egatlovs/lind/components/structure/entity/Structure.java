@@ -10,6 +10,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import de.egatlovs.lind.components.structure.entity.constraint.OneRole;
+
 @Entity
 @NamedQueries(value = { @NamedQuery(name = "Structure.GET_ALL", query = "SELECT s FROM Structure s"),
 		@NamedQuery(name = "Structure.GET_BY_ID", query = "SELECT s FROM Structure s WHERE s.id = :id"),
@@ -22,6 +24,7 @@ public class Structure {
 	private long id;
 	private String name;
 	private String description;
+	@OneRole
 	@OneToMany
 	private List<FieldDefinition> fieldDefinitions;
 

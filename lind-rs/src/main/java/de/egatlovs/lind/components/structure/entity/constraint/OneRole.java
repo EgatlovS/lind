@@ -16,10 +16,10 @@ import javax.validation.Payload;
 @Documented
 @Retention(RUNTIME)
 @Target({ FIELD, METHOD, PARAMETER, ANNOTATION_TYPE })
-@Constraint(validatedBy = CheckValidRegex.class)
-public @interface ValidRegex {
+@Constraint(validatedBy = CheckOneRole.class)
+public @interface OneRole {
 
-	String message() default "{de.egatlovs.lindrs.components.structure.entity.constraint.ValidRegex.message}";
+	String message() default "{de.egatlovs.lindrs.components.structure.entity.constraint.OneRole.message}";
 
 	Class<?>[] groups() default {};
 
