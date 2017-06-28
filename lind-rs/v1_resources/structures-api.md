@@ -4,15 +4,15 @@ Structures describe Linkpoints. Each Structure got n-Linkpoints. You can define 
 Supported Types are: __NUMBER, TEXT, IMAGE, VIDEO, MUSIC, ROLES__
 To make sure your fields are absolutely valid on each "implementing" linkpoint, u can set regex validation on each of them.
 
-### [Structures](lind-rs/v1_resources/structures-api.md#structures-api)
+### [Structures](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#structures-api)
 
 | Endpoint | Description |
 | ---- | --------------- |
-| [GET /structures](lind-rs/v1_resources/structures-api.md#get-structures) | Get Structures |
-| [GET /structures/{id}](lind-rs/v1_resources/structures-api.md#get-structuresid) | Get Structure by Id |
-| [POST /structures/structure](lind-rs/v1_resources/structures-api.md#post-structuresstructure) | Create Structure |
-| [DELETE /structures/{id}](lind-rs/v1_resources/structures-api.md#delete-structuresid) | Remove Structure |
-| [GET /structures/{id}/links](lind-rs/v1_resources/structures-api.md#get-structuresidlinks) | Get Links by Structure Id |
+| [GET /structures](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#get-structures) | Get Structures |
+| [GET /structures/{id}](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#get-structuresid) | Get Structure by Id |
+| [POST /structures/structure](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#post-structuresstructure) | Create Structure |
+| [DELETE /structures/{id}](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#delete-structuresid) | Remove Structure |
+| [GET /structures/{id}/links](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#get-structuresidlinks) | Get Links by Structure Id |
 
 ## `GET /structures`
 
