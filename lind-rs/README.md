@@ -37,14 +37,50 @@ For more Information watch this [HATEOAS Article on Dzone](https://dzone.com/art
 
 ```json
 {
-    "_links": {
-        "teams": "https://api.twitch.tv/kraken/teams",       
-        "channel": "https://api.twitch.tv/kraken/channel",
-        "user": "https://api.twitch.tv/kraken/user",
-        "ingests": "https://api.twitch.tv/kraken/ingests",
-        "streams": "https://api.twitch.tv/kraken/streams",
-        "search": "https://api.twitch.tv/kraken/search"
-    },
+    "_links": [
+            {
+                "params": {
+                    "rel": "self",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/linkpoints/13"
+            },
+            {
+                "params": {
+                    "rel": "structure",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/structures/1"
+            },
+            {
+                "params": {
+                    "rel": "firstField",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/linkpoints/13/firstField"
+            },
+            {
+                "params": {
+                    "rel": "secondField",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/linkpoints/13/secondField"
+            },
+            {
+                "params": {
+                    "rel": "update",
+                    "type": "PUT"
+                },
+                "href": "http://localhost:8080/api/linkpoints/13"
+            },
+            {
+                "params": {
+                    "rel": "remove",
+                    "type": "DELETE"
+                },
+                "href": "http://localhost:8080/api/linkpoints/13"
+            }
+        ]
     ...
 }
 ```
