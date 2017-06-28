@@ -2,15 +2,15 @@
 -
 Linkpoints are the specific expression of a Structure. Each Linkpoint belongs to exactly one Structure and needs to have every field of his Parent-Structure.
 
-### [Linkpoints](lind-rs/v1_resources/linkpoints-api.md#linkpoints-api)
+### [Linkpoints](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#linkpoints-api)
 
 | Endpoint | Description |
 | ---- | --------------- |
-| [GET /linkpoints/{id}](lind-rs/v1_resources/linkpoints-api.md#get-linkpointsid) | Get Linkpoints by Id |
-| [POST /linkpoints/linkpoint](lind-rs/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) | Create Linkpoint |
-| [PUT /linkpoints/{id}](lind-rs/v1_resources/linkpoints-api.md#put-linkpointsid) | Update Linkpoint |
-| [DELETE /linkpoints/{id}](lind-rs/v1_resources/linkpoints-api.md#delete-linkpointsid) | Remove Linkpoint |
-| [GET /linkpoints/{id}/{fieldname}](lind-rs/v1_resources/linkpoints-api.md#get-linkpointsidfieldname) | Get Field of Linkpoint |
+| [GET /linkpoints/{id}](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#get-linkpointsid) | Get Linkpoints by Id |
+| [POST /linkpoints/linkpoint](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) | Create Linkpoint |
+| [PUT /linkpoints/{id}](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#put-linkpointsid) | Update Linkpoint |
+| [DELETE /linkpoints/{id}](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#delete-linkpointsid) | Remove Linkpoint |
+| [GET /linkpoints/{id}/{fieldname}](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#get-linkpointsidfieldname) | Get Field of Linkpoint |
 
 ## `GET /linkpoints/{id}`
 
