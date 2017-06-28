@@ -1,8 +1,10 @@
 package de.egatlovs.lind.components.linkpoint.entity.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.Link;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 public class LinkpointDTO {
 
@@ -12,6 +14,7 @@ public class LinkpointDTO {
 	private List<FieldDTO> fieldDTOs;
 
 	// self, structure
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
 	private List<Link> _links;
 
 	public LinkpointDTO() {
@@ -49,6 +52,9 @@ public class LinkpointDTO {
 	}
 
 	public List<Link> get_links() {
+		if (_links == null) {
+			_links = new ArrayList<>();
+		}
 		return _links;
 	}
 

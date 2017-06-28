@@ -2,6 +2,7 @@ package de.egatlovs.lind.components.structure.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,6 @@ import de.egatlovs.lind.components.structure.entity.constraint.OneRole;
 @Entity
 @NamedQueries(value = { @NamedQuery(name = "Structure.GET_ALL", query = "SELECT s FROM Structure s"),
 		@NamedQuery(name = "Structure.GET_BY_ID", query = "SELECT s FROM Structure s WHERE s.id = :id"),
-		@NamedQuery(name = "Structure.GET_BY_NAME", query = "SELECT s FROM Structure s WHERE s.name = :name"),
 		@NamedQuery(name = "Structure.GET_MATCHING_LINKPOINTS", query = "SELECT l FROM Linkpoint l WHERE l.parent.id = :id") })
 public class Structure {
 
@@ -25,7 +25,7 @@ public class Structure {
 	private String name;
 	private String description;
 	@OneRole
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<FieldDefinition> fieldDefinitions;
 
 	public Structure() {

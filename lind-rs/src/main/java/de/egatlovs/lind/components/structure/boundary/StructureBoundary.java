@@ -15,6 +15,7 @@ import de.egatlovs.lind.components.structure.entity.Structure;
 import de.egatlovs.lind.components.structure.entity.StructureDao;
 import de.egatlovs.lind.components.structure.entity.dto.MinimalStructureDTO;
 import de.egatlovs.lind.components.structure.entity.dto.StructureDTO;
+import de.egatlovs.lind.shared.LinkBuilder;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -29,19 +30,22 @@ public class StructureBoundary {
 	@Inject
 	private LTransformer optimus;
 
+	@Inject
+	private LinkBuilder builder;
+
 	public List<MinimalStructureDTO> getStructures() {
 		List<Structure> structures = structureManager.getStructures();
-		return bumblebee.minimalStructureDTOs(structures);
+		List<MinimalStructureDTO> dtos = bumblebee.minimalStructureDTOs(structures);
+		for (int i = 0; i < structures.size(); i++) {
+			builder.build(dtos.get(i), structures.get(i));
+		}
+		return dtos;
 	}
 
 	public StructureDTO getStructureById(long id) {
 		Structure structure = structureManager.getStructure(id);
-		return bumblebee.structureDTO(structure);
-	}
-
-	public StructureDTO getStructureByName(String name) {
-		Structure structure = structureManager.getStructure(name);
-		return bumblebee.structureDTO(structure);
+		StructureDTO dto = bumblebee.structureDTO(structure);
+		return builder.build(dto, structure);
 	}
 
 	public void createStructure(StructureDTO structureDTO) {
@@ -53,13 +57,13 @@ public class StructureBoundary {
 		structureManager.removeStructure(id);
 	}
 
-	public void removeStructureByName(String name) {
-		structureManager.removeStructure(name);
-	}
-
 	public List<MinimalLinkpointDTO> getLinkpointsByStructureId(long id) {
 		List<Linkpoint> linkpoints = structureManager.getMatchingLinkpoints(id);
-		return optimus.minimalLinkpointDTOs(linkpoints);
+		List<MinimalLinkpointDTO> dtos = optimus.minimalLinkpointDTOs(linkpoints);
+		for (int i = 0; i < linkpoints.size(); i++) {
+			builder.build(dtos.get(i), linkpoints.get(i));
+		}
+		return dtos;
 	}
 
 }

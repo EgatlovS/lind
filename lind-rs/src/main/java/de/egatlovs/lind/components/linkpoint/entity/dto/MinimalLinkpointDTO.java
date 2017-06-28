@@ -1,8 +1,10 @@
 package de.egatlovs.lind.components.linkpoint.entity.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.Link;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 public class MinimalLinkpointDTO {
 
@@ -10,6 +12,7 @@ public class MinimalLinkpointDTO {
 	private String name;
 
 	// self, fields, structure
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
 	private List<Link> _links;
 
 	public MinimalLinkpointDTO() {
@@ -37,6 +40,9 @@ public class MinimalLinkpointDTO {
 	}
 
 	public List<Link> get_links() {
+		if (_links == null) {
+			_links = new ArrayList<>();
+		}
 		return _links;
 	}
 

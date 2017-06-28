@@ -1,15 +1,18 @@
 package de.egatlovs.lind.components.structure.entity.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.Link;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 public class MinimalStructureDTO {
 
 	private long id;
 	private String name;
 
-	// self, linkpoints, fielddefinitions
+	// self
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
 	private List<Link> _links;
 
 	public MinimalStructureDTO() {
@@ -37,6 +40,9 @@ public class MinimalStructureDTO {
 	}
 
 	public List<Link> get_links() {
+		if (_links == null) {
+			_links = new ArrayList<>();
+		}
 		return _links;
 	}
 

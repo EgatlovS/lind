@@ -25,10 +25,6 @@ public interface StructureResourceDefinition {
 	@Path("/{id}")
 	public Response getStructureById(@PathParam("id") long id);
 
-	@GET
-	@Path("/{name}")
-	public Response getStructureByName(@PathParam("name") String name);
-
 	@POST
 	@Path("/structure")
 	public Response createStructure(StructureDTO structure);
@@ -36,10 +32,6 @@ public interface StructureResourceDefinition {
 	@DELETE
 	@Path("/{id}")
 	public Response removeStructureById(@PathParam("id") long id);
-
-	@DELETE
-	@Path("/{name}")
-	public Response removeStructureByName(@PathParam("name") String name);
 
 	@GET
 	@Path("/{id}/links")

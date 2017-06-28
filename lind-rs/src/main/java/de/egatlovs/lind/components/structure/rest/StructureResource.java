@@ -5,23 +5,33 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.lind.components.structure.boundary.StructureBoundary;
 import de.egatlovs.lind.components.structure.entity.dto.MinimalStructureDTO;
 import de.egatlovs.lind.components.structure.entity.dto.StructureDTO;
 import de.egatlovs.lind.rest.VersioningInterceptor;
+import de.egatlovs.lind.shared.LinkBuilder;
 
 @Interceptors(VersioningInterceptor.class)
 @RequestScoped
 public class StructureResource implements StructureResourceDefinition {
 
+	@Context
+	private UriInfo uriInfo;
+
 	@Inject
 	private StructureBoundary bdry;
 
+	@Inject
+	private LinkBuilder linkBuilder;
+
 	@Override
 	public Response getStructures() {
+		linkBuilder.setBuilder(uriInfo.getBaseUriBuilder());
 		List<MinimalStructureDTO> structures = bdry.getStructures();
 		return Response.ok(structures).build();
 	}
@@ -29,12 +39,6 @@ public class StructureResource implements StructureResourceDefinition {
 	@Override
 	public Response getStructureById(long id) {
 		StructureDTO structure = bdry.getStructureById(id);
-		return Response.ok(structure).build();
-	}
-
-	@Override
-	public Response getStructureByName(String name) {
-		StructureDTO structure = bdry.getStructureByName(name);
 		return Response.ok(structure).build();
 	}
 
@@ -47,12 +51,6 @@ public class StructureResource implements StructureResourceDefinition {
 	@Override
 	public Response removeStructureById(long id) {
 		bdry.removeStructureById(id);
-		return Response.ok().build();
-	}
-
-	@Override
-	public Response removeStructureByName(String name) {
-		bdry.removeStructureByName(name);
 		return Response.ok().build();
 	}
 

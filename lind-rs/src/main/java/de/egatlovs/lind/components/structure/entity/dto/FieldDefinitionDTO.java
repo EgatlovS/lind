@@ -1,8 +1,10 @@
 package de.egatlovs.lind.components.structure.entity.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.Link;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import de.egatlovs.lind.components.structure.entity.FieldType;
 
@@ -14,6 +16,7 @@ public class FieldDefinitionDTO {
 	private String validationConstraint;
 
 	// self, structure
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
 	private List<Link> _links;
 
 	public FieldDefinitionDTO() {
@@ -59,6 +62,9 @@ public class FieldDefinitionDTO {
 	}
 
 	public List<Link> get_links() {
+		if (_links == null) {
+			_links = new ArrayList<>();
+		}
 		return _links;
 	}
 

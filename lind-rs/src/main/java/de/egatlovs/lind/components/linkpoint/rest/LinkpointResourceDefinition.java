@@ -16,7 +16,7 @@ import de.egatlovs.lind.rest.CustomMediaType;
 
 @Produces(value = MediaType.APPLICATION_JSON)
 @Consumes(value = CustomMediaType.VERSION_1_JSON)
-@Path("/links")
+@Path("/linkpoints")
 public interface LinkpointResourceDefinition {
 
 	@GET
@@ -24,7 +24,7 @@ public interface LinkpointResourceDefinition {
 	Response getLinkpointById(@PathParam("id") long id);
 
 	@POST
-	@Path("/link")
+	@Path("/linkpoint")
 	Response createLinkpoint(LinkpointDTO linkpointDTO);
 
 	@PUT

@@ -1,12 +1,14 @@
 package de.egatlovs.lind.components.linkpoint.boundary;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import de.egatlovs.lind.components.linkpoint.control.LTransformer;
 import de.egatlovs.lind.components.linkpoint.control.FieldValidation;
+import de.egatlovs.lind.components.linkpoint.control.LTransformer;
 import de.egatlovs.lind.components.linkpoint.entity.Field;
 import de.egatlovs.lind.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.lind.components.linkpoint.entity.LinkpointDao;
@@ -14,6 +16,7 @@ import de.egatlovs.lind.components.linkpoint.entity.dto.FieldDTO;
 import de.egatlovs.lind.components.linkpoint.entity.dto.LinkpointDTO;
 import de.egatlovs.lind.components.structure.entity.Structure;
 import de.egatlovs.lind.components.structure.entity.StructureDao;
+import de.egatlovs.lind.shared.LinkBuilder;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -31,9 +34,13 @@ public class LinkpointBoundary {
 	@Inject
 	private FieldValidation linkpointValidation;
 
+	@Inject
+	private LinkBuilder builder;
+
 	public LinkpointDTO getLinkpointById(long id) {
 		Linkpoint linkpoint = linkpointManager.getLinkpoint(id);
-		return optimus.linkpointDTO(linkpoint);
+		LinkpointDTO dto = optimus.linkpointDTO(linkpoint);
+		return builder.build(linkpoint, dto);
 	}
 
 	public void createLinkpoint(LinkpointDTO linkpointDTO) {
@@ -69,8 +76,15 @@ public class LinkpointBoundary {
 	}
 
 	public FieldDTO getLinkpointField(long id, String fieldname) {
-		Field field = linkpointManager.getField(id, fieldname);
-		return optimus.fieldDTO(field);
+		Linkpoint linkpoint = linkpointManager.getLinkpoint(id);
+		List<Field> fields = linkpoint.getFields();
+		for (Field field : fields) {
+			if (field.getName().equals(fieldname)) {
+				FieldDTO dto = optimus.fieldDTO(field);
+				return builder.build(linkpoint, dto);
+			}
+		}
+		return null; // TODO throw exception instead!
 	}
 
 }

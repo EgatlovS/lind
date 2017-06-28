@@ -21,7 +21,7 @@ public class STransformer {
 
 	public Structure structure(StructureDTO structureDTO) {
 		return new Structure(structureDTO.getId(), structureDTO.getName(), structureDTO.getDescription(),
-				fieldDefinitions(structureDTO.getFieldDefinitionDTOs()));
+				fieldDefinitions(structureDTO.getFieldDefinitions()));
 	}
 
 	public List<StructureDTO> structureDTOs(List<Structure> structures) {

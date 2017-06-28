@@ -2,6 +2,7 @@ package de.egatlovs.lind.components.linkpoint.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +15,8 @@ import javax.persistence.OneToMany;
 import de.egatlovs.lind.components.structure.entity.Structure;
 
 @Entity
-@NamedQueries(value = { @NamedQuery(name = "Linkpoint.GET_BY_ID", query = "SELECT l FROM Linkpoint l WHERE l.id = :id"),
-		@NamedQuery(name = "Linkpoint.GET_FIELD_OF_LINKPOINT", query = "SELECT f FROM Linkpoint l, Field f WHERE l.id = :id AND f.name = :name") })
+@NamedQueries(value = {
+		@NamedQuery(name = "Linkpoint.GET_BY_ID", query = "SELECT l FROM Linkpoint l WHERE l.id = :id") })
 public class Linkpoint {
 
 	@Id
@@ -24,7 +25,7 @@ public class Linkpoint {
 	private String name;
 	@ManyToOne
 	private Structure parent;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Field> fields;
 
 	public Linkpoint() {

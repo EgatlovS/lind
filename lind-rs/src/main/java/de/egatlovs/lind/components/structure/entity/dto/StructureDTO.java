@@ -1,27 +1,30 @@
 package de.egatlovs.lind.components.structure.entity.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.Link;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 public class StructureDTO {
 
 	private long id;
 	private String name;
 	private String description;
-	private List<FieldDefinitionDTO> fieldDefinitionDTOs;
+	private List<FieldDefinitionDTO> fieldDefinitions;
 
 	// self, linkpoints
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
 	private List<Link> _links;
 
 	public StructureDTO() {
 	}
 
-	public StructureDTO(long id, String name, String description, List<FieldDefinitionDTO> fieldDefinitionDTOs) {
+	public StructureDTO(long id, String name, String description, List<FieldDefinitionDTO> fieldDefinitions) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.fieldDefinitionDTOs = fieldDefinitionDTOs;
+		this.fieldDefinitions = fieldDefinitions;
 	}
 
 	public long getId() {
@@ -48,15 +51,18 @@ public class StructureDTO {
 		this.description = description;
 	}
 
-	public List<FieldDefinitionDTO> getFieldDefinitionDTOs() {
-		return fieldDefinitionDTOs;
+	public List<FieldDefinitionDTO> getFieldDefinitions() {
+		return fieldDefinitions;
 	}
 
-	public void setFieldDefinitionDTOs(List<FieldDefinitionDTO> fieldDefinitionDTOs) {
-		this.fieldDefinitionDTOs = fieldDefinitionDTOs;
+	public void setFieldDefinitionDTOs(List<FieldDefinitionDTO> fieldDefinitions) {
+		this.fieldDefinitions = fieldDefinitions;
 	}
 
 	public List<Link> get_links() {
+		if (_links == null) {
+			_links = new ArrayList<>();
+		}
 		return _links;
 	}
 
