@@ -93,22 +93,22 @@ TBA
 
 ## API
 
-### [Structures](lind-rs/v1_resources/structures-api.md#structures-api)
+### [Structures](/v1_resources/structures-api.md#structures-api)
 
 | Endpoint | Description |
 | ---- | --------------- |
-| [GET /structures](lind-rs/v1_resources/structures-api.md#get-structures) | Get Structures |
-| [GET /structures/{id}](lind-rs/v1_resources/structures-api.md#get-structuresid) | Get Structure by Id |
-| [POST /structures/structure](lind-rs/v1_resources/structures-api.md#post-structuresstructure) | Create Structure |
-| [DELETE /structures/{id}](lind-rs/v1_resources/structures-api.md#delete-structuresid) | Remove Structure |
-| [GET /structures/{id}/links](lind-rs/v1_resources/structures-api.md#get-structuresidlinks) | Get Links by Structure Id |
+| [GET /structures](/v1_resources/structures-api.md#get-structures) | Get Structures |
+| [GET /structures/{id}](/v1_resources/structures-api.md#get-structuresid) | Get Structure by Id |
+| [POST /structures/structure](/v1_resources/structures-api.md#post-structuresstructure) | Create Structure |
+| [DELETE /structures/{id}](/v1_resources/structures-api.md#delete-structuresid) | Remove Structure |
+| [GET /structures/{id}/links]/v1_resources/structures-api.md#get-structuresidlinks) | Get Links by Structure Id |
 
-### [Linkpoints](lind-rs/v1_resources/linkpoints-api.md#linkpoints-api)
+### [Linkpoints](/v1_resources/linkpoints-api.md#linkpoints-api)
 
 | Endpoint | Description |
 | ---- | --------------- |
-| [GET /linkpoints/{id}](lind-rs/v1_resources/linkpoints-api.md#get-linkpointsid) | Get Linkpoints by Id |
-| [POST /linkpoints/linkpoint](lind-rs/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) | Create Linkpoint |
-| [PUT /linkpoints/{id}](lind-rs/v1_resources/linkpoints-api.md#put-linkpointsid) | Update Linkpoint |
-| [DELETE /linkpoints/{id}](lind-rs/v1_resources/linkpoints-api.md#delete-linkpointsid) | Remove Linkpoint |
-| [GET /linkpoints/{id}/{fieldname}](lind-rs/v1_resources/linkpoints-api.md#get-linkpointsidfieldname) | Get Field of Linkpoint |
+| [GET /linkpoints/{id}](/v1_resources/linkpoints-api.md#get-linkpointsid) | Get Linkpoints by Id |
+| [POST /linkpoints/linkpoint](/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) | Create Linkpoint |
+| [PUT /linkpoints/{id}](/v1_resources/linkpoints-api.md#put-linkpointsid) | Update Linkpoint |
+| [DELETE /linkpoints/{id}](/v1_resources/linkpoints-api.md#delete-linkpointsid) | Remove Linkpoint |
+| [GET /linkpoints/{id}/{fieldname}](/v1_resources/linkpoints-api.md#get-linkpointsidfieldname) | Get Field of Linkpoint |
