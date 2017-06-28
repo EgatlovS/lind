@@ -68,7 +68,7 @@ public class LinkBuilder implements Serializable {
 	public FieldDTO build(Linkpoint linkpoint, FieldDTO dto) {
 		// self
 		Link self = Link.fromUri(this.getBuilder().path(LinkpointResourceDefinition.class)
-				.path(LinkpointResourceDefinition.class, "getLinkpointField").build(linkpoint.getId(), dto.getId()))
+				.path(LinkpointResourceDefinition.class, "getLinkpointField").build(linkpoint.getId(), dto.getName()))
 				.rel("self").type("GET").build();
 		dto.get_links().add(self);
 
