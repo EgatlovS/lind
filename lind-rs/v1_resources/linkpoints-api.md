@@ -1,5 +1,5 @@
 # Linkpoints API
--
+
 Linkpoints are the specific expression of a Structure. Each Linkpoint belongs to exactly one Structure and needs to have every field of his Parent-Structure.
 
 ### [Linkpoints](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#linkpoints-api)
