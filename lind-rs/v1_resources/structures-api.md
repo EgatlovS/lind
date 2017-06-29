@@ -1,5 +1,5 @@
 # Structures API
--
+
 Structures describe Linkpoints. Each Structure got n-Linkpoints. You can define many different fields with different types.
 Supported Types are: __NUMBER, TEXT, IMAGE, VIDEO, MUSIC, ROLES__
 To make sure your fields are absolutely valid on each "implementing" linkpoint, u can set regex validation on each of them.
