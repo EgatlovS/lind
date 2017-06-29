@@ -24,7 +24,7 @@ public class LTransformer {
 		Structure structure = new Structure();
 		structure.setId(linkpointDTO.getStructureId());
 		return new Linkpoint(linkpointDTO.getId(), linkpointDTO.getName(), structure,
-				fields(linkpointDTO.getFieldDTOs()));
+				fields(linkpointDTO.getFields()));
 	}
 
 	public List<LinkpointDTO> linkpointDTOs(List<Linkpoint> linkpoints) {

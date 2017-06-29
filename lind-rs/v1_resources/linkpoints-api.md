@@ -26,7 +26,112 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 ### Example Response
 
 ```json
-
+{
+    "id": 7,
+    "name": "linkpointname",
+    "structureId": 1,
+    "fields": [
+        {
+            "id": 8,
+            "name": "firstField",
+            "value": "somevalue",
+            "_links": [
+                {
+                    "params": {
+                        "rel": "self",
+                        "type": "GET"
+                    },
+                    "href": "http://localhost:8080/api/linkpoints/7/firstField"
+                },
+                {
+                    "params": {
+                        "rel": "structure",
+                        "type": "GET"
+                    },
+                    "href": "http://localhost:8080/api/structures/1"
+                },
+                {
+                    "params": {
+                        "rel": "linkpoint",
+                        "type": "GET"
+                    },
+                    "href": "http://localhost:8080/api/linkpoints/7"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "secondField",
+            "value": "somevalue2",
+            "_links": [
+                {
+                    "params": {
+                        "rel": "self",
+                        "type": "GET"
+                    },
+                    "href": "http://localhost:8080/api/linkpoints/9/secondField"
+                },
+                {
+                    "params": {
+                        "rel": "structure",
+                        "type": "GET"
+                    },
+                    "href": "http://localhost:8080/api/structures/1"
+                },
+                {
+                    "params": {
+                        "rel": "linkpoint",
+                        "type": "GET"
+                    },
+                    "href": "http://localhost:8080/api/linkpoints/9"
+                }
+        }
+    ],
+    "_links": [
+        {
+            "params": {
+                "rel": "self",
+                "type": "GET"
+            },
+            "href": "http://localhost:8080/api/linkpoints/7"
+        },
+        {
+            "params": {
+                "rel": "structure",
+                "type": "GET"
+            },
+            "href": "http://localhost:8080/api/structures/1"
+        },
+        {
+            "params": {
+                "rel": "firstField",
+                "type": "GET"
+            },
+            "href": "http://localhost:8080/api/linkpoints/7/firstField"
+        },
+        {
+            "params": {
+                "rel": "secondField",
+                "type": "GET"
+            },
+            "href": "http://localhost:8080/api/linkpoints/7/secondField"
+        },
+        {
+            "params": {
+                "rel": "update",
+                "type": "PUT"
+            },
+            "href": "http://localhost:8080/api/linkpoints/7"
+        },
+        {
+            "params": {
+                "rel": "remove",
+                "type": "DELETE"
+            },
+            "href": "http://localhost:8080/api/linkpoints/7"
+        }
+    ]
+}
 ```
 
 ## `POST /linkpoints/linkpoint`
@@ -41,7 +146,7 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
     -d '{
 	    "name": "linkpointname",
 	    "structureId": 1,
-	    "fieldDTOs": [{
+	    "fields": [{
 		    "name": "firstField",
 		    "value": "somevalue"
 	    },
@@ -54,8 +159,9 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 
 ### Example Response
 
-```json
-
+```
+Status 201 Created
+x-api-version: 1
 ```
 
 ## `PUT /linkpoints/{id}`
@@ -70,7 +176,7 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
     -d '{
 	    "name": "linkpointname",
 	    "structureId": 1,
-	    "fieldDTOs": [{
+	    "fields": [{
 		    "name": "firstField",
 		    "value": "valuesome"
 	    },
@@ -83,8 +189,9 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 
 ### Example Response
 
-```json
-
+```
+Status 200 Ok
+x-api-version: 1
 ```
 
 ## `DELETE /linkpoints/{id}`
@@ -100,8 +207,9 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 
 ### Example Response
 
-```json
-
+```
+Status 201 Created
+x-api-version: 1
 ```
 
 ## `GET /linkpoints/{id}/{fieldname}`
@@ -118,5 +226,32 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 ### Example Response
 
 ```json
-
+{
+    "id": 13,
+    "name": "firstField",
+    "value": "valuesome",
+    "_links": [
+        {
+            "params": {
+                "rel": "self",
+                "type": "GET"
+            },
+            "href": "http://localhost:8080/api/linkpoints/7/firstField"
+        },
+        {
+            "params": {
+                "rel": "structure",
+                "type": "GET"
+            },
+            "href": "http://localhost:8080/api/structures/1"
+        },
+        {
+            "params": {
+                "rel": "linkpoint",
+                "type": "GET"
+            },
+            "href": "http://localhost:8080/api/linkpoints/7"
+        }
+    ]
+}
 ```

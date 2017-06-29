@@ -16,7 +16,7 @@ public class FieldValidation {
 
 	public boolean isValid(Structure structure, LinkpointDTO linkpointDTO) {
 		List<FieldDefinition> definitions = structure.getFieldDefinitions();
-		List<FieldDTO> fields = linkpointDTO.getFieldDTOs();
+		List<FieldDTO> fields = linkpointDTO.getFields();
 		if (!checkFieldLength(definitions, fields) || //
 				!checkUniqueNames(fields) || //
 				!checkFields(definitions, fields)) {

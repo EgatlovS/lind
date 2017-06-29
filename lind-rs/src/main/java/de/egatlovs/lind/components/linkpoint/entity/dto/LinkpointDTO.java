@@ -11,7 +11,7 @@ public class LinkpointDTO {
 	private long id;
 	private String name;
 	private long structureId;
-	private List<FieldDTO> fieldDTOs;
+	private List<FieldDTO> fields;
 
 	// self, structure
 	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
@@ -20,11 +20,11 @@ public class LinkpointDTO {
 	public LinkpointDTO() {
 	}
 
-	public LinkpointDTO(long id, String name, long structureId, List<FieldDTO> fieldDTOs) {
+	public LinkpointDTO(long id, String name, long structureId, List<FieldDTO> fields) {
 		this.id = id;
 		this.name = name;
 		this.structureId = structureId;
-		this.fieldDTOs = fieldDTOs;
+		this.fields = fields;
 	}
 
 	public long getId() {
@@ -43,12 +43,12 @@ public class LinkpointDTO {
 		this.name = name;
 	}
 
-	public List<FieldDTO> getFieldDTOs() {
-		return fieldDTOs;
+	public List<FieldDTO> getFields() {
+		return fields;
 	}
 
-	public void setFieldDTOs(List<FieldDTO> fieldDTOs) {
-		this.fieldDTOs = fieldDTOs;
+	public void setFields(List<FieldDTO> fields) {
+		this.fields = fields;
 	}
 
 	public List<Link> get_links() {
