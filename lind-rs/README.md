@@ -4,7 +4,8 @@ Link Distributor RS is a service to make simple CRUD based calls for Linkpoints 
 
 ## Content
 - [Overview](https://github.com/EgatlovS/lind/tree/master/lind-rs#overview)
-    - [API Versions and MIME Types](https://github.com/EgatlovS/lind/tree/master/lind-rs#api-versions-and-mime-types)
+    - [CORS](https://github.com/EgatlovS/lind/tree/master/lind-rs#api-versions-and-mime-types)
+    - [API Versions and MIME Types](https://github.com/EgatlovS/lind/tree/master/lind-rs#cors)
     - [Formats](https://github.com/EgatlovS/lind/tree/master/lind-rs#formats)
     - [HATEOAS API](https://github.com/EgatlovS/lind/tree/master/lind-rs#hateoas-api)
     - [Errors](https://github.com/EgatlovS/lind/tree/master/lind-rs#errors)
@@ -16,6 +17,10 @@ Link Distributor RS is a service to make simple CRUD based calls for Linkpoints 
 ## Overview
 
 The LIND API enables you to develop your own independent frontends using the features I provide. Features include retrieving data about linkpoints and structures. You can also create update and delete them. The following pages list the resources that the LIND API provides. If you have any questions or need help in using this API, please message me at <alex.bogner36@googlemail.com> .
+
+### CORS
+
+TBA
 
 ### API Versions and MIME Types
 
