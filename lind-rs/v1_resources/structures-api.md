@@ -28,6 +28,62 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 ### Example Response
 
 ```json
+[
+    {
+        "id": 1,
+        "name": "test",
+        "_links": [
+            {
+                "params": {
+                    "rel": "self",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/structures/1"
+            },
+            {
+                "params": {
+                    "rel": "remove",
+                    "type": "DELETE"
+                },
+                "href": "http://localhost:8080/api/structures/1"
+            },
+            {
+                "params": {
+                    "rel": "linkpoints",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/structures/1/links"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "test",
+        "_links": [
+            {
+                "params": {
+                    "rel": "self",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/structures/4"
+            },
+            {
+                "params": {
+                    "rel": "remove",
+                    "type": "DELETE"
+                },
+                "href": "http://localhost:8080/api/structures/4"
+            },
+            {
+                "params": {
+                    "rel": "linkpoints",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/structures/4/links"
+            }
+        ]
+    }
+]
 
 ```
 
@@ -45,7 +101,50 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 ### Example Response
 
 ```json
-
+{
+    "id": 1,
+    "name": "test",
+    "description": "testdescription",
+    "fieldDefinitions": [
+        {
+            "id": 2,
+            "name": "firstField",
+            "type": "TEXT",
+            "validationConstraint": ".*",
+            "_links": []
+        },
+        {
+            "id": 3,
+            "name": "secondField",
+            "type": "TEXT",
+            "validationConstraint": ".*",
+            "_links": []
+        }
+    ],
+    "_links": [
+        {
+            "params": {
+                "rel": "self",
+                "type": "GET"
+            },
+            "href": "http://localhost:8080/api/structures/1"
+        },
+        {
+            "params": {
+                "rel": "remove",
+                "type": "DELETE"
+            },
+            "href": "http://localhost:8080/api/structures/1"
+        },
+        {
+            "params": {
+                "rel": "linkpoints",
+                "type": "GET"
+            },
+            "href": "http://localhost:8080/api/structures/1/links"
+        }
+    ]
+}
 ```
 
 ## `POST /structures/structure`
@@ -75,8 +174,9 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 
 ### Example Response
 
-```json
-
+```
+Status 201 Created
+x-api-version: 1
 ```
 
 ## `DELETE /structures/{id}`
@@ -92,8 +192,9 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 
 ### Example Response
 
-```json
-
+```
+Status 200 Ok
+x-api-version: 1
 ```
 
 ## `GET /structures/{id}/links`
@@ -110,5 +211,102 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
 ### Example Response
 
 ```json
-
+[
+    {
+        "id": 7,
+        "name": "linkpointname",
+        "_links": [
+            {
+                "params": {
+                    "rel": "self",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/linkpoints/7"
+            },
+            {
+                "params": {
+                    "rel": "structure",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/structures/1"
+            },
+            {
+                "params": {
+                    "rel": "firstField",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/linkpoints/7/firstField"
+            },
+            {
+                "params": {
+                    "rel": "secondField",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/linkpoints/7/secondField"
+            },
+            {
+                "params": {
+                    "rel": "update",
+                    "type": "PUT"
+                },
+                "href": "http://localhost:8080/api/linkpoints/7"
+            },
+            {
+                "params": {
+                    "rel": "remove",
+                    "type": "DELETE"
+                },
+                "href": "http://localhost:8080/api/linkpoints/7"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "linkpointname",
+        "_links": [
+            {
+                "params": {
+                    "rel": "self",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/linkpoints/10"
+            },
+            {
+                "params": {
+                    "rel": "structure",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/structures/1"
+            },
+            {
+                "params": {
+                    "rel": "firstField",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/linkpoints/10/firstField"
+            },
+            {
+                "params": {
+                    "rel": "secondField",
+                    "type": "GET"
+                },
+                "href": "http://localhost:8080/api/linkpoints/10/secondField"
+            },
+            {
+                "params": {
+                    "rel": "update",
+                    "type": "PUT"
+                },
+                "href": "http://localhost:8080/api/linkpoints/10"
+            },
+            {
+                "params": {
+                    "rel": "remove",
+                    "type": "DELETE"
+                },
+                "href": "http://localhost:8080/api/linkpoints/10"
+            }
+        ]
+    }
+]
 ```
