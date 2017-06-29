@@ -4,8 +4,8 @@ Link Distributor RS is a service to make simple CRUD based calls for Linkpoints 
 
 ## Content
 - [Overview](https://github.com/EgatlovS/lind/tree/master/lind-rs#overview)
-    - [CORS](https://github.com/EgatlovS/lind/tree/master/lind-rs#api-versions-and-mime-types)
-    - [API Versions and MIME Types](https://github.com/EgatlovS/lind/tree/master/lind-rs#cors)
+    - [CORS](https://github.com/EgatlovS/lind/tree/master/lind-rs#cors)
+    - [API Versions and MIME Types](https://github.com/EgatlovS/lind/tree/master/lind-rs#api-versions-and-mime-types)
     - [Formats](https://github.com/EgatlovS/lind/tree/master/lind-rs#formats)
     - [HATEOAS API](https://github.com/EgatlovS/lind/tree/master/lind-rs#hateoas-api)
     - [Errors](https://github.com/EgatlovS/lind/tree/master/lind-rs#errors)
