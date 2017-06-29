@@ -110,15 +110,13 @@ curl -H 'Accept: application/vnd.egatlovs.v1+json' \
             "id": 2,
             "name": "firstField",
             "type": "TEXT",
-            "validationConstraint": ".*",
-            "_links": []
+            "validationConstraint": ".*"
         },
         {
             "id": 3,
             "name": "secondField",
             "type": "TEXT",
-            "validationConstraint": ".*",
-            "_links": []
+            "validationConstraint": ".*"
         }
     ],
     "_links": [
