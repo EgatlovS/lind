@@ -13,6 +13,12 @@ Link Distributor RS is a service to make simple CRUD based calls for Linkpoints 
 - [API](https://github.com/EgatlovS/lind/tree/master/lind-rs#api)
     - [Structures API](https://github.com/EgatlovS/lind/tree/master/lind-rs#structures)
     - [Linkpoints API](https://github.com/EgatlovS/lind/tree/master/lind-rs#linkpoints)
+- [Getting Started](https://github.com/EgatlovS/lind/tree/master/lind-rs)
+    - [Clone](https://github.com/EgatlovS/lind/tree/master/lind-rs)
+    - [Move to directory](https://github.com/EgatlovS/lind/tree/master/lind-rs)
+    - [Run mvn clean install](https://github.com/EgatlovS/lind/tree/master/lind-rs)
+    - [Move to target](https://github.com/EgatlovS/lind/tree/master/lind-rs)
+    - [Start WildflySwarmJar](https://github.com/EgatlovS/lind/tree/master/lind-rs)
 
 ## Overview
 
@@ -128,3 +134,45 @@ TBA
 | [PUT /linkpoints/{id}](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#put-linkpointsid) | Update Linkpoint |
 | [DELETE /linkpoints/{id}](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#delete-linkpointsid) | Remove Linkpoint |
 | [GET /linkpoints/{id}/{fieldname}](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#get-linkpointsidfieldname) | Get Field of Linkpoint |
+
+## Getting Started
+
+This is a short guide to run the project.
+
+### Clone
+
+At first u need to clone the project:
+
+```bash
+git clone https://github.com/EgatlovS/lind.git
+```
+
+### Move to directory
+
+Next step is to move to the project directory of lind-rs.
+
+```bash
+cd lind/lind-rs
+```
+
+### Run mvn clean install
+
+After that run mvn clean install.
+
+```bash
+mvn clean install
+```
+
+### Move to Target
+
+```bash
+cd target/
+```
+
+### Start WildflySwarmJar
+
+```bash
+java -jar lind-rs-swarm.jar
+```
+
+__Congratulations! You just Started LIND-RS!__
