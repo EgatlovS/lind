@@ -13,12 +13,12 @@ Link Distributor RS is a service to make simple CRUD based calls for Linkpoints 
 - [API](https://github.com/EgatlovS/lind/tree/master/lind-rs#api)
     - [Structures API](https://github.com/EgatlovS/lind/tree/master/lind-rs#structures)
     - [Linkpoints API](https://github.com/EgatlovS/lind/tree/master/lind-rs#linkpoints)
-- [Getting Started](https://github.com/EgatlovS/lind/tree/master/lind-rs)
-    - [Clone](https://github.com/EgatlovS/lind/tree/master/lind-rs)
-    - [Move to directory](https://github.com/EgatlovS/lind/tree/master/lind-rs)
-    - [Run mvn clean install](https://github.com/EgatlovS/lind/tree/master/lind-rs)
-    - [Move to target](https://github.com/EgatlovS/lind/tree/master/lind-rs)
-    - [Start WildflySwarmJar](https://github.com/EgatlovS/lind/tree/master/lind-rs)
+- [Getting Started](https://github.com/EgatlovS/lind/tree/master/lind-rs#getting-started)
+    - [Clone](https://github.com/EgatlovS/lind/tree/master/lind-rs#clone)
+    - [Move to directory](https://github.com/EgatlovS/lind/tree/master/lind-rs#move-to-directory)
+    - [Run mvn clean install](https://github.com/EgatlovS/lind/tree/master/lind-rs#run-mvn-clean-install)
+    - [Move to target](https://github.com/EgatlovS/lind/tree/master/lind-rs#move-to-target)
+    - [Start WildflySwarmJar](https://github.com/EgatlovS/lind/tree/master/lind-rs#start-wildflyswarmjar)
 
 ## Overview
 
