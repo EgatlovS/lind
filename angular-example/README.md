@@ -55,6 +55,9 @@ LIND Getting Started Content:
 
 >At first we [create a structure](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#post-structuresstructure) for the navbar-plugin:
 
+
+__NAVBAR Structure__
+
 ```json
 {
 	"name": "navbar",
@@ -74,6 +77,7 @@ LIND Getting Started Content:
 
 > After that we [create three linkpoints](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) for the applications:
 
+
 __Getting Started Application__
 
 ```json
@@ -91,6 +95,7 @@ __Getting Started Application__
 }
 ```
 
+
 __Tutorial Application__
 
 ```json
@@ -107,6 +112,7 @@ __Tutorial Application__
 	}]
 }
 ```
+
 
 __About Application__
 
@@ -128,6 +134,9 @@ __About Application__
 > The About Application uses a structrues to show different Cards with Links
 > to Social Networks and Github.
 > Let's [create a structure](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#post-structuresstructure) for that:
+
+
+__Card Structure__
 
 ```json
 {
@@ -153,6 +162,7 @@ __About Application__
 
 > Just like in Step one we [create some linkpoints](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) again:
 
+
 __Twitter Card__
 
 ```json
@@ -174,6 +184,7 @@ __Twitter Card__
 }
 ```
 
+
 __GitHub EgatlovS Card__
 
 ```json
@@ -194,6 +205,7 @@ __GitHub EgatlovS Card__
 	}]
 }
 ```
+
 
 __GitHub LinusSee Card__
 
