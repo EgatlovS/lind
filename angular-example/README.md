@@ -4,12 +4,12 @@ This project provides some Examples on how to use LIND.
 Just clone it. Run it. And make your mind.
 
 ## Content
-- [Overview](https://github.com/EgatlovS/lind/blob/master/angular-example#overview)
-- [Projects](https://github.com/EgatlovS/lind/blob/master/angular-example#projects)
+- [Overview](https://github.com/EgatlovS/lind/tree/master/angular-example#overview)
+- [Projects](https://github.com/EgatlovS/lind/tree/master/angular-example#projects)
 	- [Getting Started Application](https://github.com/EgatlovS/lind/tree/master/angular-example#getting-started-application)
 	- [Tutorial Application](https://github.com/EgatlovS/lind/tree/master/angular-example#tutorial-application)
 	- [About Application](https://github.com/EgatlovS/lind/tree/master/angular-example#about-application)
-- [Getting Started](https://github.com/EgatlovS/lind/tree/master/angular-example#getting-started-1)
+- [Getting Started](https://github.com/EgatlovS/lind/tree/master/angular-example#getting-started)
     - [Run LIND](https://github.com/EgatlovS/lind/tree/master/angular-example#run-lind)
     - [Send Requests](https://github.com/EgatlovS/lind/tree/master/angular-example#send-requests)
     - [Run Getting Started](https://github.com/EgatlovS/lind/tree/master/angular-example#run-getting-started)
