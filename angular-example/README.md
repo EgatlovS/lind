@@ -4,17 +4,17 @@ This project provides some Examples on how to use LIND.
 Just clone it. Run it. And make your mind.
 
 ## Content
-- [Overview](https://github.com/EgatlovS/lind/tree/master/angular-example)
-- [Projects](https://github.com/EgatlovS/lind/tree/master/angular-example)
-	- [Getting Started](https://github.com/EgatlovS/lind/tree/master/angular-example)
-	- [Tutorial](https://github.com/EgatlovS/lind/tree/master/angular-example)
-	- [About](https://github.com/EgatlovS/lind/tree/master/angular-example)
-- [Getting Started](https://github.com/EgatlovS/lind/tree/master/angular-example)
-    - [Run LIND](https://github.com/EgatlovS/lind/tree/master/angular-example)
-    - [Send Requests](https://github.com/EgatlovS/lind/tree/master/angular-example)
-    - [Run Getting Started](https://github.com/EgatlovS/lind/tree/master/angular-example)
-    - [Run Tutorial](https://github.com/EgatlovS/lind/tree/master/angular-example)
-    - [Run About](https://github.com/EgatlovS/lind/tree/master/angular-example)
+- [Overview](https://github.com/EgatlovS/lind/blob/master/angular-example#overview)
+- [Projects](https://github.com/EgatlovS/lind/blob/master/angular-example#projects)
+	- [Getting Started Application](https://github.com/EgatlovS/lind/tree/master/angular-example#getting-started-application)
+	- [Tutorial Application](https://github.com/EgatlovS/lind/tree/master/angular-example#tutorial-application)
+	- [About Application](https://github.com/EgatlovS/lind/tree/master/angular-example#about-application)
+- [Getting Started](https://github.com/EgatlovS/lind/tree/master/angular-example#getting-started-1)
+    - [Run LIND](https://github.com/EgatlovS/lind/tree/master/angular-example#run-lind)
+    - [Send Requests](https://github.com/EgatlovS/lind/tree/master/angular-example#send-requests)
+    - [Run Getting Started](https://github.com/EgatlovS/lind/tree/master/angular-example#run-getting-started)
+    - [Run Tutorial](https://github.com/EgatlovS/lind/tree/master/angular-example#run-tutorial)
+    - [Run About](https://github.com/EgatlovS/lind/tree/master/angular-example#run-about)
 
 ## Overview
 
@@ -24,15 +24,15 @@ TBA
 
 TBA
 
-### Getting Started
+### Getting Started Application
 
 TBA
 
-### Tutorial
+### Tutorial Application
 
 TBA
 
-### About
+### About Application
 
 TBA
 
@@ -42,18 +42,18 @@ This is a short guide to run the project.
 
 ### Run LIND
 
-Visit [LIND Getting Started](https://github.com/EgatlovS/lind/tree/master/lind-rs) for more information.
+Visit [LIND Getting Started](https://github.com/EgatlovS/lind/tree/master/lind-rs#getting-started) for more information.
 
 LIND Getting Started Content:
-- [Clone](https://github.com/EgatlovS/lind/tree/master/lind-rs)
-- [Move to directory](https://github.com/EgatlovS/lind/tree/master/lind-rs)
-- [Run mvn clean install](https://github.com/EgatlovS/lind/tree/master/lind-rs)
-- [Move to target](https://github.com/EgatlovS/lind/tree/master/lind-rs)
-- [Start WildflySwarmJar](https://github.com/EgatlovS/lind/tree/master/lind-rs)
+- [Clone](https://github.com/EgatlovS/lind/tree/master/lind-rs#clone)
+- [Move to directory](https://github.com/EgatlovS/lind/tree/master/lind-rs#move-to-directory)
+- [Run mvn clean install](https://github.com/EgatlovS/lind/tree/master/lind-rs#run-mvn-clean-install)
+- [Move to target](https://github.com/EgatlovS/lind/tree/master/lind-rs#move-to-target)
+- [Start WildflySwarmJar](https://github.com/EgatlovS/lind/tree/master/lind-rs#start-wildflyswarmjar)
 
 ### Send Requests
 
-At first we [create a structure](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#post-structuresstructure) for the navbar-plugin:
+>At first we [create a structure](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#post-structuresstructure) for the navbar-plugin:
 
 ```json
 {
@@ -72,7 +72,7 @@ At first we [create a structure](https://github.com/EgatlovS/lind/blob/master/li
 }
 ```
 
-After that we [create three linkpoints](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) for the applications:
+> After that we [create three linkpoints](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) for the applications:
 
 __Getting Started Application__
 
@@ -125,9 +125,9 @@ __About Application__
 }
 ```
 
-The About Application uses a structrues to show different Cards with Links
-to Social Networks and Github.
-Let's [create a structure](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#post-structuresstructure) for that:
+> The About Application uses a structrues to show different Cards with Links
+> to Social Networks and Github.
+> Let's [create a structure](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/structures-api.md#post-structuresstructure) for that:
 
 ```json
 {
@@ -151,7 +151,7 @@ Let's [create a structure](https://github.com/EgatlovS/lind/blob/master/lind-rs/
 }
 ```
 
-Just like in Step one we [create some linkpoints](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) again:
+> Just like in Step one we [create some linkpoints](https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md#post-linkpointslinkpoint) again:
 
 __Twitter Card__
 
