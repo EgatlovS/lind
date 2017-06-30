@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lt-topic-panel',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topic-panel.component.css']
 })
 export class TopicPanelComponent implements OnInit {
+
+  @Input()
+  value: { title: string, content: string };
+
+  @Input()
+  collapsableId = 'collapse1';
 
   constructor() { }
 
