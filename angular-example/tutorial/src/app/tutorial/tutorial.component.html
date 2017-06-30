@@ -1,4 +1,1 @@
-<p>
-  tutorial works!
-</p>
-<lt-topic-panel></lt-topic-panel>
+<lt-topic-panel *ngFor="let value of values; let valueIndex = index" [value]="value" [collapsableId]="'collapse' + valueIndex"></lt-topic-panel>
