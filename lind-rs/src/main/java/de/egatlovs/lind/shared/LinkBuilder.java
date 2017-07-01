@@ -61,7 +61,7 @@ public class LinkBuilder implements Serializable {
 						.path(LinkpointResourceDefinition.class, "removeLinkpointById").build(linkpoint.getId()))
 				.rel("remove").type("DELETE").build();
 		dto.get_links().add(removeLinkpoint);
-		
+
 		for (FieldDTO fieldDto : dto.getFields()) {
 			build(linkpoint, fieldDto);
 		}

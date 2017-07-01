@@ -38,6 +38,7 @@ public class StructureResource implements StructureResourceDefinition {
 
 	@Override
 	public Response getStructureById(long id) {
+		linkBuilder.setBuilder(uriInfo.getBaseUriBuilder());
 		StructureDTO structure = bdry.getStructureById(id);
 		return Response.ok(structure).build();
 	}
@@ -56,6 +57,7 @@ public class StructureResource implements StructureResourceDefinition {
 
 	@Override
 	public Response getLinkpointsByStructureId(long id) {
+		linkBuilder.setBuilder(uriInfo.getBaseUriBuilder());
 		List<MinimalLinkpointDTO> linkpoints = bdry.getLinkpointsByStructureId(id);
 		return Response.ok(linkpoints).build();
 	}
