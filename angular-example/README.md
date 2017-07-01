@@ -68,7 +68,7 @@ _NavBar Structure_
 		"validationConstraint": "[A-Za-z ]*"
 	},
 	{
-		"name": "secondField",
+		"name": "ApplicationLink",
 		"type": "TEXT",
 		"validationConstraint": "/^(https?:\/\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/"
 	}]
