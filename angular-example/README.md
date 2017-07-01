@@ -70,7 +70,7 @@ _NavBar Structure_
 	{
 		"name": "ApplicationLink",
 		"type": "TEXT",
-		"validationConstraint": "/^(https?:\/\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/"
+		"validationConstraint": "^(https?:\/\/)([a-z\\d\\.-]{2,})(\\.([a-z]{2,}))?(:\\d{2,4})?\/?"
 	}]
 }
 ```
@@ -90,7 +90,7 @@ _Getting Started Application_
 	},
 	{
 		"name": "ApplicationLink",
-		"value": "localhost:8080/pastelinkhere"
+		"value": "http://localhost:8080/pastelinkhere"
 	}]
 }
 ```
@@ -108,7 +108,7 @@ _Tutorial Application_
 	},
 	{
 		"name": "ApplicationLink",
-		"value": "localhost:8081/pastelinkhere"
+		"value": "http://localhost:8081/pastelinkhere"
 	}]
 }
 ```
@@ -126,7 +126,7 @@ _About Application_
 	},
 	{
 		"name": "ApplicationLink",
-		"value": "localhost:8082/pastelinkhere"
+		"value": "http://localhost:8082/pastelinkhere"
 	}]
 }
 ```
