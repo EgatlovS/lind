@@ -126,7 +126,7 @@ _About Application_
 	},
 	{
 		"name": "ApplicationLink",
-		"value": "http://localhost:8082/pastelinkhere"
+		"value": "http://localhost:4202/"
 	}]
 }
 ```
