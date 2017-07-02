@@ -108,7 +108,7 @@ _Tutorial Application_
 	},
 	{
 		"name": "ApplicationLink",
-		"value": "http://localhost:8081/pastelinkhere"
+		"value": "http://localhost:4201/"
 	}]
 }
 ```
