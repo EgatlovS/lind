@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lt works!';
+
+  structureId = 1;
+  fieldNames = {tabname: 'TabName', applicationLink: 'ApplicationLink'};
 }

@@ -22,5 +22,4 @@ export class TutorialComponent implements OnInit {
     this.values.push({title: 'How to navbar', content: 'Tutorial Anleitung'});
     this.values.push({title: 'How to Dynamic Components', content: 'Tutorial'});
   }
-
 }
