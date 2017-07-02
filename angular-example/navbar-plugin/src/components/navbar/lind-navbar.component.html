@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse">
   <ul class="nav navbar-nav">
-    <li *ngFor="let field of fields"><a href="field.applicationLink.value">{{field.tabname.value}}</a></li>
+    <li *ngFor="let field of fields"><a [href]="field.applicationLink.value">{{field.tabname.value}}</a></li>
   </ul>
 </nav>
