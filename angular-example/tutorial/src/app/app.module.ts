@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { LindNavbarModule } from 'navbar-plugin/index';
+import { LindNavbarModule } from 'lind-navbar-plugin/index';
 
 import { AppComponent } from './app.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
