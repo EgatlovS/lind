@@ -90,7 +90,7 @@ _Getting Started Application_
 	},
 	{
 		"name": "ApplicationLink",
-		"value": "http://localhost:8080/pastelinkhere"
+		"value": "http://localhost:4200/"
 	}]
 }
 ```
