@@ -12,7 +12,7 @@ public class CorsFeature implements Feature {
 	@Override
 	public boolean configure(FeatureContext context) {
 		CorsFilter corsFilter = new CorsFilter();
-		corsFilter.getAllowedOrigins().add("*");
+		corsFilter.getAllowedOrigins().add(new CorsConfig().origins());
 		context.register(corsFilter);
 		return true;
 	}
