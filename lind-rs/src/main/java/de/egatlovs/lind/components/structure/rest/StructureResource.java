@@ -14,7 +14,7 @@ import de.egatlovs.lind.components.structure.boundary.StructureBoundary;
 import de.egatlovs.lind.components.structure.entity.dto.MinimalStructureDTO;
 import de.egatlovs.lind.components.structure.entity.dto.StructureDTO;
 import de.egatlovs.lind.rest.VersioningInterceptor;
-import de.egatlovs.lind.shared.LinkBuilder;
+import de.egatlovs.lind.shared.UriContext;
 
 @Interceptors(VersioningInterceptor.class)
 @RequestScoped
@@ -27,18 +27,18 @@ public class StructureResource implements StructureResourceDefinition {
 	private StructureBoundary bdry;
 
 	@Inject
-	private LinkBuilder linkBuilder;
+	private UriContext uriContext;
 
 	@Override
 	public Response getStructures() {
-		linkBuilder.setBuilder(uriInfo.getBaseUriBuilder());
+		uriContext.setBuilder(uriInfo.getBaseUriBuilder());
 		List<MinimalStructureDTO> structures = bdry.getStructures();
 		return Response.ok(structures).build();
 	}
 
 	@Override
 	public Response getStructureById(long id) {
-		linkBuilder.setBuilder(uriInfo.getBaseUriBuilder());
+		uriContext.setBuilder(uriInfo.getBaseUriBuilder());
 		StructureDTO structure = bdry.getStructureById(id);
 		return Response.ok(structure).build();
 	}
@@ -57,7 +57,7 @@ public class StructureResource implements StructureResourceDefinition {
 
 	@Override
 	public Response getLinkpointsByStructureId(long id) {
-		linkBuilder.setBuilder(uriInfo.getBaseUriBuilder());
+		uriContext.setBuilder(uriInfo.getBaseUriBuilder());
 		List<MinimalLinkpointDTO> linkpoints = bdry.getLinkpointsByStructureId(id);
 		return Response.ok(linkpoints).build();
 	}
