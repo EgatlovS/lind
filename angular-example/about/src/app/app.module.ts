@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { LindNavbarModule } from 'lind-navbar-plugin/index';
 
+import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    CoreModule,
 
     LindNavbarModule
   ],
