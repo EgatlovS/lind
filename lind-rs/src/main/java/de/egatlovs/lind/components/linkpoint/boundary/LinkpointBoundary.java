@@ -7,8 +7,10 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
+import de.egatlovs.lind.components.linkpoint.control.FieldLinker;
 import de.egatlovs.lind.components.linkpoint.control.FieldValidation;
 import de.egatlovs.lind.components.linkpoint.control.LTransformer;
+import de.egatlovs.lind.components.linkpoint.control.LinkpointLinker;
 import de.egatlovs.lind.components.linkpoint.entity.Field;
 import de.egatlovs.lind.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.lind.components.linkpoint.entity.LinkpointDao;
@@ -16,7 +18,6 @@ import de.egatlovs.lind.components.linkpoint.entity.dto.FieldDTO;
 import de.egatlovs.lind.components.linkpoint.entity.dto.LinkpointDTO;
 import de.egatlovs.lind.components.structure.entity.Structure;
 import de.egatlovs.lind.components.structure.entity.StructureDao;
-import de.egatlovs.lind.shared.LinkBuilder;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -35,21 +36,25 @@ public class LinkpointBoundary {
 	private FieldValidation linkpointValidation;
 
 	@Inject
-	private LinkBuilder builder;
+	private LinkpointLinker linkpointLinker;
+
+	@Inject
+	private FieldLinker fieldLinker;
 
 	public LinkpointDTO getLinkpointById(long id) {
 		Linkpoint linkpoint = linkpointManager.getLinkpoint(id);
 		LinkpointDTO dto = optimus.linkpointDTO(linkpoint);
-		return builder.build(linkpoint, dto);
+		return linkpointLinker.link(linkpoint, dto);
 	}
 
-	public void createLinkpoint(LinkpointDTO linkpointDTO) {
+	public void createLinkpoint(LinkpointDTO linkpointDTO) throws Exception {
 		Structure structure = structureManager.getStructure(linkpointDTO.getStructureId());
 		if (linkpointValidation.isValid(structure, linkpointDTO)) {
 			Linkpoint linkpoint = optimus.linkpoint(linkpointDTO);
 			linkpoint.setParent(structure);
 			linkpointManager.persist(linkpoint);
 		} else {
+			throw new Exception("Creation failed. Caused by bad validation.");
 			// TODO throw exception instead!
 		}
 	}
@@ -81,7 +86,7 @@ public class LinkpointBoundary {
 		for (Field field : fields) {
 			if (field.getName().equals(fieldname)) {
 				FieldDTO dto = optimus.fieldDTO(field);
-				return builder.build(linkpoint, dto);
+				return fieldLinker.link(linkpoint, dto);
 			}
 		}
 		return null; // TODO throw exception instead!

@@ -8,14 +8,16 @@ import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import de.egatlovs.lind.components.linkpoint.control.LTransformer;
+import de.egatlovs.lind.components.linkpoint.control.MinimalLinkpointLinker;
 import de.egatlovs.lind.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
+import de.egatlovs.lind.components.structure.control.MinimalStructureLinker;
 import de.egatlovs.lind.components.structure.control.STransformer;
+import de.egatlovs.lind.components.structure.control.StructureLinker;
 import de.egatlovs.lind.components.structure.entity.Structure;
 import de.egatlovs.lind.components.structure.entity.StructureDao;
 import de.egatlovs.lind.components.structure.entity.dto.MinimalStructureDTO;
 import de.egatlovs.lind.components.structure.entity.dto.StructureDTO;
-import de.egatlovs.lind.shared.LinkBuilder;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -31,13 +33,19 @@ public class StructureBoundary {
 	private LTransformer optimus;
 
 	@Inject
-	private LinkBuilder builder;
+	private MinimalStructureLinker minimalStructureLinks;
+
+	@Inject
+	private StructureLinker structureLinker;
+
+	@Inject
+	private MinimalLinkpointLinker minimalLinkpointLinker;
 
 	public List<MinimalStructureDTO> getStructures() {
 		List<Structure> structures = structureManager.getStructures();
 		List<MinimalStructureDTO> dtos = bumblebee.minimalStructureDTOs(structures);
 		for (int i = 0; i < structures.size(); i++) {
-			builder.build(dtos.get(i), structures.get(i));
+			minimalStructureLinks.link(dtos.get(i), structures.get(i));
 		}
 		return dtos;
 	}
@@ -45,7 +53,7 @@ public class StructureBoundary {
 	public StructureDTO getStructureById(long id) {
 		Structure structure = structureManager.getStructure(id);
 		StructureDTO dto = bumblebee.structureDTO(structure);
-		return builder.build(dto, structure);
+		return structureLinker.link(dto, structure);
 	}
 
 	public void createStructure(StructureDTO structureDTO) {
@@ -61,7 +69,7 @@ public class StructureBoundary {
 		List<Linkpoint> linkpoints = structureManager.getMatchingLinkpoints(id);
 		List<MinimalLinkpointDTO> dtos = optimus.minimalLinkpointDTOs(linkpoints);
 		for (int i = 0; i < linkpoints.size(); i++) {
-			builder.build(dtos.get(i), linkpoints.get(i));
+			minimalLinkpointLinker.link(dtos.get(i), linkpoints.get(i));
 		}
 		return dtos;
 	}

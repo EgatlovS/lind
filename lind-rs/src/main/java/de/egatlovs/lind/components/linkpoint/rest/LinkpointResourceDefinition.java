@@ -25,7 +25,7 @@ public interface LinkpointResourceDefinition {
 
 	@POST
 	@Path("/linkpoint")
-	Response createLinkpoint(LinkpointDTO linkpointDTO);
+	Response createLinkpoint(LinkpointDTO linkpointDTO) throws Exception;
 
 	@PUT
 	@Path("/{id}")
