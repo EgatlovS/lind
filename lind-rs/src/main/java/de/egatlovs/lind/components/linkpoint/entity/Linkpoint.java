@@ -1,5 +1,6 @@
 package de.egatlovs.lind.components.linkpoint.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import de.egatlovs.lind.components.linkpoint.entity.dto.FieldDTO;
+import de.egatlovs.lind.components.linkpoint.entity.dto.LinkpointDTO;
+import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.lind.components.structure.entity.Structure;
 
 @Entity
@@ -68,6 +72,18 @@ public class Linkpoint {
 
 	public void setFields(List<Field> fields) {
 		this.fields = fields;
+	}
+
+	public LinkpointDTO asDto() {
+		List<FieldDTO> fieldDTOs = new ArrayList<>();
+		for (Field field : fields) {
+			fieldDTOs.add(field.asDto());
+		}
+		return new LinkpointDTO(id, name, parent.getId(), fieldDTOs);
+	}
+
+	public MinimalLinkpointDTO asMinimal() {
+		return new MinimalLinkpointDTO(id, name);
 	}
 
 }

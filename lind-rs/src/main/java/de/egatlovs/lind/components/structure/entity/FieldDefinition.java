@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import de.egatlovs.lind.components.structure.entity.constraint.ValidRegex;
+import de.egatlovs.lind.components.structure.entity.dto.FieldDefinitionDTO;
 
 @Entity
 public class FieldDefinition {
@@ -61,6 +62,10 @@ public class FieldDefinition {
 
 	public void setValidationConstraint(String validationConstraint) {
 		this.validationConstraint = validationConstraint;
+	}
+
+	public FieldDefinitionDTO asDto() {
+		return new FieldDefinitionDTO(id, name, type, validationConstraint);
 	}
 
 }

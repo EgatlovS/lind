@@ -1,5 +1,6 @@
 package de.egatlovs.lind.components.structure.entity.dto;
 
+import de.egatlovs.lind.components.structure.entity.FieldDefinition;
 import de.egatlovs.lind.components.structure.entity.FieldType;
 
 public class FieldDefinitionDTO {
@@ -49,6 +50,10 @@ public class FieldDefinitionDTO {
 
 	public void setValidationConstraint(String validationConstraint) {
 		this.validationConstraint = validationConstraint;
+	}
+
+	public FieldDefinition asEntity() {
+		return new FieldDefinition(id, name, type, validationConstraint);
 	}
 
 }

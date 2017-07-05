@@ -40,8 +40,8 @@ public class LinkpointResource implements LinkpointResourceDefinition {
 	}
 
 	@Override
-	public Response updateLinkpointById(long id, LinkpointDTO linkpointDTO) {
-		bdry.updateLinkpointById(id, linkpointDTO);
+	public Response updateLinkpointById(long id, LinkpointDTO linkpointDTO) throws Exception {
+		bdry.updateLinkpointById(linkpointDTO);
 		return Response.ok().build();
 	}
 
@@ -52,7 +52,7 @@ public class LinkpointResource implements LinkpointResourceDefinition {
 	}
 
 	@Override
-	public Response getLinkpointField(long id, String fieldname) {
+	public Response getLinkpointField(long id, String fieldname) throws Exception {
 		uriContext.setBuilder(uriInfo.getBaseUriBuilder());
 		FieldDTO field = bdry.getLinkpointField(id, fieldname);
 		return Response.ok(field).build();

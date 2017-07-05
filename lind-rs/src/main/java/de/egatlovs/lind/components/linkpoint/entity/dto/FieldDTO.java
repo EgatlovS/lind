@@ -6,6 +6,8 @@ import java.util.List;
 import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import de.egatlovs.lind.components.linkpoint.entity.Field;
+
 public class FieldDTO {
 
 	private long id;
@@ -58,6 +60,10 @@ public class FieldDTO {
 
 	public void set_links(List<Link> _links) {
 		this._links = _links;
+	}
+
+	public Field asEntity() {
+		return new Field(id, name, value);
 	}
 
 }

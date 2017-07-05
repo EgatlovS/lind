@@ -6,6 +6,10 @@ import java.util.List;
 import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import de.egatlovs.lind.components.linkpoint.entity.Field;
+import de.egatlovs.lind.components.linkpoint.entity.Linkpoint;
+import de.egatlovs.lind.components.structure.entity.dto.StructureDTO;
+
 public class LinkpointDTO {
 
 	private long id;
@@ -68,6 +72,14 @@ public class LinkpointDTO {
 
 	public void setStructureId(long structureId) {
 		this.structureId = structureId;
+	}
+
+	public Linkpoint asEntity(StructureDTO structureDto) {
+		List<Field> fields = new ArrayList<>();
+		for (FieldDTO fieldDto : this.fields) {
+			fields.add(fieldDto.asEntity());
+		}
+		return new Linkpoint(id, name, structureDto.asEntity(), fields);
 	}
 
 }
