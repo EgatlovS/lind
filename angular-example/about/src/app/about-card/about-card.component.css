@@ -1,0 +1,16 @@
+.cardWrapper
+{
+  width: 268.6px;
+  display: inline-block;
+}
+
+.cardImageWrapper
+{
+  padding: 0px 19.3px;  
+}
+
+.cardImage
+{
+  width: 200px;
+  height: 200px;
+}
