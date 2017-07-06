@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import de.egatlovs.lind.components.linkpoint.entity.dto.FieldDTO;
+
 @Entity
 public class Field {
 
@@ -45,6 +47,10 @@ public class Field {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public FieldDTO asDto() {
+		return new FieldDTO(id, name, value);
 	}
 
 }

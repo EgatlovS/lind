@@ -29,7 +29,7 @@ public interface LinkpointResourceDefinition {
 
 	@PUT
 	@Path("/{id}")
-	Response updateLinkpointById(@PathParam("id") long id, LinkpointDTO linkpointDTO);
+	Response updateLinkpointById(@PathParam("id") long id, LinkpointDTO linkpointDTO) throws Exception;
 
 	@DELETE
 	@Path("/{id}")
@@ -37,6 +37,6 @@ public interface LinkpointResourceDefinition {
 
 	@GET
 	@Path("/{id}/{fieldname}")
-	Response getLinkpointField(@PathParam("id") long id, @PathParam("fieldname") String fieldname);
+	Response getLinkpointField(@PathParam("id") long id, @PathParam("fieldname") String fieldname) throws Exception;
 
 }

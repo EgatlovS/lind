@@ -6,6 +6,9 @@ import java.util.List;
 import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import de.egatlovs.lind.components.structure.entity.FieldDefinition;
+import de.egatlovs.lind.components.structure.entity.Structure;
+
 public class StructureDTO {
 
 	private long id;
@@ -68,6 +71,14 @@ public class StructureDTO {
 
 	public void set_links(List<Link> _links) {
 		this._links = _links;
+	}
+
+	public Structure asEntity() {
+		List<FieldDefinition> definitions = new ArrayList<>();
+		for (FieldDefinitionDTO fieldDefinition : fieldDefinitions) {
+			definitions.add(fieldDefinition.asEntity());
+		}
+		return new Structure(id, name, description, definitions);
 	}
 
 }

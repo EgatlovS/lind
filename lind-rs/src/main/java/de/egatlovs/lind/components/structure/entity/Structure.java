@@ -1,5 +1,6 @@
 package de.egatlovs.lind.components.structure.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import de.egatlovs.lind.components.structure.entity.constraint.OneRole;
+import de.egatlovs.lind.components.structure.entity.dto.FieldDefinitionDTO;
+import de.egatlovs.lind.components.structure.entity.dto.MinimalStructureDTO;
+import de.egatlovs.lind.components.structure.entity.dto.StructureDTO;
 
 @Entity
 @NamedQueries(value = { @NamedQuery(name = "Structure.GET_ALL", query = "SELECT s FROM Structure s"),
@@ -68,6 +72,18 @@ public class Structure {
 
 	public void setFieldDefinitions(List<FieldDefinition> fieldDefinitions) {
 		this.fieldDefinitions = fieldDefinitions;
+	}
+
+	public StructureDTO asDto() {
+		List<FieldDefinitionDTO> definitions = new ArrayList<>();
+		for (FieldDefinition fieldDefinition : fieldDefinitions) {
+			definitions.add(fieldDefinition.asDto());
+		}
+		return new StructureDTO(id, name, description, definitions);
+	}
+
+	public MinimalStructureDTO asMinimal() {
+		return new MinimalStructureDTO(id, name);
 	}
 
 }
