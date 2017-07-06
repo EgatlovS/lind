@@ -1,0 +1,41 @@
+## Getting Started
+
+This is a short guide to run the project.
+
+### Clone
+
+At first u need to clone the project:
+
+```bash
+git clone https://github.com/EgatlovS/lind.git
+```
+
+### Move to directory
+
+Next step is to move to the project directory of lind-rs.
+
+```bash
+cd lind/lind-rs
+```
+
+### Run mvn clean install
+
+After that run mvn clean install.
+
+```bash
+mvn clean install
+```
+
+### Move to Target
+
+```bash
+cd target/
+```
+
+### Start WildflySwarmJar
+
+```bash
+java -jar lind-rs-swarm.jar
+```
+
+__Congratulations! You just Started LIND-RS!__
