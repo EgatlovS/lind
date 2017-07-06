@@ -12,6 +12,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import de.egatlovs.lind.components.structure.entity.constraint.OneOrder;
 import de.egatlovs.lind.components.structure.entity.constraint.OneRole;
 import de.egatlovs.lind.components.structure.entity.dto.FieldDefinitionDTO;
 import de.egatlovs.lind.components.structure.entity.dto.MinimalStructureDTO;
@@ -28,6 +29,7 @@ public class Structure {
 	private long id;
 	private String name;
 	private String description;
+	@OneOrder
 	@OneRole
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<FieldDefinition> fieldDefinitions;
