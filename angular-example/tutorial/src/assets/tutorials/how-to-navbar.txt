@@ -1,0 +1,30 @@
+## How to create your own navbar plugin
+
+#### Key elements
++ A data service
++ A navbar
+
+
+### Data service
+Write a service that can retrieve all linkpoints of a specific structure.
+For that you need the id of the structure.
+To filter the retrieved linkpoint list you also need to know the field names declared in the structure.
+
+Additionally the service has to be able to retrieve certain fields of a linkpoint. These contain the values
+of a linkpoint and will later on be displayed in the navbar.
+
+### Navbar Component
+Now you can write your navbar, which is just an ordinary navbar, with the single difference being, that you don't hardwire it's elements.
+
+You retrieve those from the server using the previously written service and list them with an ngFor.
+To pass the parameters to the service you can either hardwire them in the navbar component, or pass them to the navbar via @Input
+
+
+### Combine these two in a npm module
+Now you need to combine these two in a npm module so you can use that module in several projects.
+To use it in a project create a local_modules folder on the same folder level as node_modules and
+run
+```
+npm install --save local_modules/{plugin_name}
+```
+This will register the plugin in the package.json file.
