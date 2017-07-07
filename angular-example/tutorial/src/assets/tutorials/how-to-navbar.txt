@@ -19,18 +19,25 @@ To filter the retrieved linkpoint list you also need to know the field names dec
 Additionally the service has to be able to retrieve certain fields of a linkpoint. These contain the values
 of a linkpoint and will later on be displayed in the navbar.
 
+To see the final code look here:
+https://github.com/EgatlovS/lind/blob/master/angular-example/navbar-plugin/src/services/navbar.service.ts
+
 ### Navbar Component
 Now you can write your navbar, which is just an ordinary navbar, with the single difference being, that you don't hardwire it's elements.
 
 You retrieve those from the server using the previously written service and list them with an ngFor.
 To pass the parameters to the service you can either hardwire them in the navbar component, or pass them to the navbar via @Input
 
+To see the final code look here:
+https://github.com/EgatlovS/lind/tree/master/angular-example/navbar-plugin/src/components/navbar
 
 ### Combine these two in a npm module
 Now you need to combine these two in a npm module so you can use that module in several projects.
 To use it in a project create a `local_modules` folder on the same folder level as `node_modules` and
-run
+copy the plugin into that folder.
+
+Afterwards run
 ```
 npm install --save local_modules/{plugin_name}
 ```
-This will register the plugin in the `package.json` file.
+to register the plugin in the `package.json` file.

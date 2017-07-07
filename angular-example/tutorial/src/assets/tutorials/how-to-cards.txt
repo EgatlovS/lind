@@ -1,5 +1,5 @@
 ## How to create a card layout
-Another example would be creating a card layout.
+Another example would be creating a card layout which works the same a the navbar-plugin.
 
 #### Key elements
 + A data service
