@@ -21,12 +21,16 @@ export class TutorialComponent implements OnInit {
 
   ngOnInit() {
     // TODO: Init values by getting the structure/linkpoint from the server
-    this.values.push({title: 'How to navbar', content: undefined});
-    this.values.push({title: 'How to Dynamic Components', content: undefined});
+    this.values.push({title: 'How to create a navbar', content: undefined});
+    this.values.push({title: 'How to create a card layout', content: undefined});
 
     this.fileService.asPlainText('assets/tutorials/how-to-navbar.txt').subscribe(
       data => this.values[0].content = data,
       err => console.log('Err', err)
+   );
+   this.fileService.asPlainText('assets/tutorials/how-to-cards.txt').subscribe(
+     data => this.values[1].content = data,
+     err => console.log('Err', err)
    );
   }
 }

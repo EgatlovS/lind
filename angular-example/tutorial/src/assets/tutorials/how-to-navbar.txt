@@ -1,4 +1,10 @@
 ## How to create your own navbar plugin
+The purpose of this navbar is, that the webapplication consist of several seperate deployments and
+the navbar elements route between those seperate parts of the webapp.
+
+This allows to have several smaller apps, while not having to write a navbar for all of them,
+since it can be included as a plugin. It also makes the applications navbars easier to maintain, since
+changes only need to be made to the plugin and not every single app.
 
 #### Key elements
 + A data service
@@ -22,9 +28,9 @@ To pass the parameters to the service you can either hardwire them in the navbar
 
 ### Combine these two in a npm module
 Now you need to combine these two in a npm module so you can use that module in several projects.
-To use it in a project create a local_modules folder on the same folder level as node_modules and
+To use it in a project create a `local_modules` folder on the same folder level as `node_modules` and
 run
 ```
 npm install --save local_modules/{plugin_name}
 ```
-This will register the plugin in the package.json file.
+This will register the plugin in the `package.json` file.

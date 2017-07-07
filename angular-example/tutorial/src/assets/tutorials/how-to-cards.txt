@@ -1,0 +1,18 @@
+## How to create a card layout
+Another example would be creating a card layout.
+
+#### Key elements
++ A data service
++ A card layout
+
+For the same reason as with the navbar, you need a data service. Just like with the navbar, you also need a html layout
+of how your card layout is going to look and be structured.
+
+### The card layout
+Write a card layout in whatever form you want (the example on the `about` page uses bootstrap) and then
+use the service to get the data you want to display in the card layout.
+
+### After writing the card layout
+If you are done writing your layout and it corretly displays the data, you can choose what to do with it.
+You could use it only in one of the applications behind the navbar or decide you need that component in several apps and therefore
+include it as a module, just like the `navbar-plugin`.
