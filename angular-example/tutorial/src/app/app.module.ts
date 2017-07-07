@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { MarkdownModule } from 'angular2-markdown';
 import { LindNavbarModule } from 'lind-navbar-plugin/index';
+import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
@@ -22,7 +23,8 @@ import { TopicPanelComponent } from './tutorial/topic-panel/topic-panel.componen
     HttpModule,
 
     MarkdownModule.forRoot(),
-    LindNavbarModule
+    LindNavbarModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
