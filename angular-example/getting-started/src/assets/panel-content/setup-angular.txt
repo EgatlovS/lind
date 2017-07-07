@@ -1,41 +1,34 @@
-## Getting Started
+## Setting up the angular example
 
-This is a short guide to run the project.
+This is a short guide how to run the angular example for lind-rs
+
+### Prerequisites
+
+Prerequisites to run the angular example are node.js, npm and angular-cli.
+If you do not have all of them installed, you should do so before proceeding
+with following the guide.
+Also you need to follow all guides in the panels above this one.
 
 ### Clone
 
-At first u need to clone the project:
+After taking care of the prerequisites, you have to clone the project:
 
 ```bash
 git clone https://github.com/EgatlovS/lind.git
 ```
 
-### Move to directory
 
-Next step is to move to the project directory of lind-rs.
+### The angular example
 
-```bash
-cd lind/lind-rs
-```
+The angular example consists of four parts.
+The first part is a `navbar-plugin`, which functions as a npm module.
+The three other parts are the angular projects `about`, `getting-started` and
+`tutorial`. All of those include the `navbar-plugin` and use it as a navigation bar.
+Since `navbar-plugin` is a module included in the other projects and not a project itself,
+it does not need to be run.
 
-### Run mvn clean install
+#### Run the angular-projects
 
-After that run mvn clean install.
-
-```bash
-mvn clean install
-```
-
-### Move to Target
-
-```bash
-cd target/
-```
-
-### Start WildflySwarmJar
-
-```bash
-java -jar lind-rs-swarm.jar
-```
-
-__Congratulations! You just Started LIND-RS!__
+To run the three angular-projects navigate into each project folder e.g. /lind/angular-example/about.
+Then run the command `ng serve` in the command line. To view the website look at the ports under which
+it runs and enter localhost:{port} in your browser.
