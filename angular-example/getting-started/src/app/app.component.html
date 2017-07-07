@@ -1,6 +1,17 @@
 <lind-navbar [structureId]="structureId" [fieldNames]=fieldNames></lind-navbar>
-
-<lg-markdown-panel [panelId]="1" [data]="content.setupLind"></lg-markdown-panel>
-<lg-markdown-panel [panelId]="2" [data]="content.structCreation"></lg-markdown-panel>
-<lg-markdown-panel [panelId]="3" [data]="content.linkCreation"></lg-markdown-panel>
-<lg-markdown-panel [panelId]="4" [data]="content.setupAngular"></lg-markdown-panel>
+<div class="center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1>Getting started</h1>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <div class="panelWrapper">
+    <lg-markdown-panel [panelId]="1" [data]="content.setupLind"></lg-markdown-panel>
+    <lg-markdown-panel [panelId]="2" [data]="content.structCreation"></lg-markdown-panel>
+    <lg-markdown-panel [panelId]="3" [data]="content.linkCreation"></lg-markdown-panel>
+    <lg-markdown-panel [panelId]="4" [data]="content.setupAngular"></lg-markdown-panel>
+  </div>
+</div>
