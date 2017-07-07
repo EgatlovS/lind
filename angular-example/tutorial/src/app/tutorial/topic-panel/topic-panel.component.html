@@ -6,7 +6,11 @@
       </h4>
     </div>
     <div [id]="collapsableId" class="panel-collapse collapse">
-      <div class="panel-body">{{value?.content}}</div>
+      <div class="panel-body">
+        <markdown *ngIf="value?.content">
+          {{value?.content}}
+        </markdown>
+      </div>
     </div>
   </div>
 </div>
