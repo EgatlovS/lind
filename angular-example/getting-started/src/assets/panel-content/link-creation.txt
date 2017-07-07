@@ -1,0 +1,124 @@
+## Linkpoint creation
+
+After creating the structures, you now have to create data in the form of linkpoints.
+
+To view how to create a linkpoint check out this link: https://github.com/EgatlovS/lind/blob/master/lind-rs/v1_resources/linkpoints-api.md
+
+### Creating the navbar linkpoints
+
+Create three `navbar`-linkpoints following the example of the link above and pass this json data.
+
+#### For the first navbar linkpoint (about application)
+```bash
+{
+	"name": "About",
+	"structureId": 1,
+	"fields": [{
+		"name": "TabName",
+		"value": "About"
+	},
+	{
+		"name": "ApplicationLink",
+		"value": "http://localhost:4202/"
+	}]
+}
+```
+
+#### For the second navbar linkpoint (getting started application)
+```bash
+{
+	"name": "GettingStarted",
+	"structureId": 1,
+	"fields": [{
+		"name": "TabName",
+		"value": "Getting Started"
+	},
+	{
+		"name": "ApplicationLink",
+		"value": "http://localhost:4200/"
+	}]
+}
+```
+
+#### For the third navbar linkpoint (tutorial application)
+```bash
+{
+	"name": "Tutorial",
+	"structureId": 1,
+	"fields": [{
+		"name": "TabName",
+		"value": "Tutorial"
+	},
+	{
+		"name": "ApplicationLink",
+		"value": "http://localhost:4201/"
+	}]
+}
+```
+
+
+
+
+### Creating the card linkpoints
+
+Create the card linkpoints for the `about` application following the example of the link above and pass this json data:
+
+#### EgatlovS's twitter card
+```bash
+{
+	"name": "TwitterCard",
+	"structureId": 4,
+	"fields": [{
+		"name": "CardName",
+		"value": "Twitter"
+	},
+	{
+		"name": "RedirectLink",
+		"value": "https://twitter.com/EgatlovS"
+	},
+	{
+		"name": "Image",
+		"value": "http://www.windsorcastleinn.co.uk/wp-content/uploads/2015/05/twitter-big.png"
+	}]
+}
+```
+
+#### EgatlovS's twitter card
+```bash
+{
+	"name": "GitHub",
+	"structureId": 4,
+	"fields": [{
+		"name": "CardName",
+		"value": "GitHub EgatlovS"
+	},
+	{
+		"name": "RedirectLink",
+		"value": "https://github.com/EgatlovS"
+	},
+	{
+		"name": "Image",
+		"value": "https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png"
+	}]
+}
+```
+
+#### EgatlovS's twitter card
+```bash
+{
+	"name": "GitHub",
+	"structureId": 4,
+	"fields": [{
+		"name": "CardName",
+		"value": "GitHub LinusSee"
+	},
+	{
+		"name": "RedirectLink",
+		"value": "https://github.com/LinusSee"
+	},
+	{
+		"name": "Image",
+		"value": "https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png"
+	}]
+}
+```

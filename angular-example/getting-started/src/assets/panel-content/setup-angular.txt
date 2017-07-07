@@ -7,6 +7,7 @@ This is a short guide how to run the angular example for lind-rs
 Prerequisites to run the angular example are node.js, npm and angular-cli.
 If you do not have all of them installed, you should do so before proceeding
 with following the guide.
+
 Also you need to follow all guides in the panels above this one.
 
 ### Clone
@@ -20,15 +21,17 @@ git clone https://github.com/EgatlovS/lind.git
 
 ### The angular example
 
-The angular example consists of four parts.
-The first part is a `navbar-plugin`, which functions as a npm module.
+The angular example consists of four parts. The first part is a `navbar-plugin`, which functions as a npm module.
+
 The three other parts are the angular projects `about`, `getting-started` and
 `tutorial`. All of those include the `navbar-plugin` and use it as a navigation bar.
+
 Since `navbar-plugin` is a module included in the other projects and not a project itself,
 it does not need to be run.
 
 #### Run the angular-projects
 
 To run the three angular-projects navigate into each project folder e.g. /lind/angular-example/about.
-Then run the command `ng serve` in the command line. To view the website look at the ports under which
-it runs and enter localhost:{port} in your browser.
+Then run the command `ng serve` in the command line.
+
+To view the website look at the ports under which it runs and enter localhost:{port} in your browser.
