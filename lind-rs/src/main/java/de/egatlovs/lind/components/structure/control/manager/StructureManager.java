@@ -6,10 +6,13 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
+import de.egatlovs.lind.components.linkpoint.control.SortAlgorythm;
 import de.egatlovs.lind.components.linkpoint.control.hateoas.LinkpointLinks;
 import de.egatlovs.lind.components.linkpoint.entity.Linkpoint;
 import de.egatlovs.lind.components.linkpoint.entity.dto.MinimalLinkpointDTO;
 import de.egatlovs.lind.components.structure.control.hateoas.StructureLinks;
+import de.egatlovs.lind.components.structure.entity.FieldDefinition;
+import de.egatlovs.lind.components.structure.entity.FieldType;
 import de.egatlovs.lind.components.structure.entity.Structure;
 import de.egatlovs.lind.components.structure.entity.dbaccess.StructureDao;
 import de.egatlovs.lind.components.structure.entity.dto.MinimalStructureDTO;
@@ -63,12 +66,24 @@ public class StructureManager {
 	public List<MinimalLinkpointDTO> matchingLinkpoints(long id) {
 		List<MinimalLinkpointDTO> minimals = new ArrayList<>();
 		List<Linkpoint> linkpoints = dao.matchingLinkpoints(id);
+		new SortAlgorythm().sort(linkpoints, getOrderFieldName(linkpoints));
 		for (Linkpoint linkpoint : linkpoints) {
 			MinimalLinkpointDTO dto = linkpoint.asMinimal();
 			dto.set_links(linkpointLinks.links(linkpoint));
 			minimals.add(dto);
 		}
 		return minimals;
+	}
+
+	private String getOrderFieldName(List<Linkpoint> linkpoints) {
+		if (linkpoints.size() != 0) {
+			for (FieldDefinition def : linkpoints.get(0).getParent().getFieldDefinitions()) {
+				if (def.getType().equals(FieldType.ORDER)) {
+					return def.getName();
+				}
+			}
+		}
+		return null;
 	}
 
 }

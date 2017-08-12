@@ -17,14 +17,9 @@ public class FieldMatcher {
 	public void tryToMatch(StructureDTO structureDto, LinkpointDTO linkpointDTO) throws Exception {
 		List<FieldDefinitionDTO> definitions = structureDto.getFieldDefinitions();
 		List<FieldDTO> fields = linkpointDTO.getFields();
-		try {
-			checkFieldLength(definitions, fields);
-			checkUniqueNames(fields);
-			checkFields(definitions, fields);
-		} catch (Exception e) {
-			throw new Exception("Validation Exception"); // todo throw a real
-															// one
-		}
+		checkFieldLength(definitions, fields);
+		checkUniqueNames(fields);
+		checkFields(definitions, fields);
 	}
 
 	private void checkFieldLength(List<FieldDefinitionDTO> definitions, List<FieldDTO> fields) throws Exception {
@@ -48,7 +43,7 @@ public class FieldMatcher {
 			try {
 				checkField(definition, fields);
 			} catch (Exception e) {
-				throw new Exception("Invalid field name or value"); // todo
+				throw new Exception("Invalid field name or value " + definition.getName()); // todo
 																	// throw a
 																	// real one
 			}
